@@ -1,5 +1,5 @@
 {
-  "name": "elsolo's web application as portfolio",
+  "name": "portfolio",
   "version": "1.0.0",
   "description": "ElSolo's web application as portfolio use a quasar,node.js server and vue.js",
   "productName": "Web application",
