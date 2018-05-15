@@ -1,8 +1,8 @@
 {
-  "name": "portfolio",
+  "name": "ElSolo's web application as portfolio",
   "version": "1.0.0",
-  "description": "portfolio",
-  "productName": "Elsolo's portfolio",
+  "description": "ElSolo's web application as portfolio use a quasar,node.js server and vue.js",
+  "productName": "Web application",
   "cordovaId": "org.cordova.elsolo.app",
   "author": "ElSolo <ElSolo1991@mail.ru>",
   "private": true,

@@ -1,6 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-layout-header>
+      <quick-menu :menu-count=count  :icon-class=school :menu-url-list=list :position=position :is-open-new-tab=false></quick-menu>
       <q-toolbar
         color="primary"
         :glossy="$q.theme === 'mat'"
@@ -48,12 +49,21 @@
 
 <script>
 import { openURL } from 'quasar'
+import quickMenu from 'vue-quick-menu'
 
 export default {
   name: 'LayoutDefault',
+  components: {
+    quickMenu
+  },
   data () {
     return {
-      leftDrawerOpen: this.$q.platform.is.desktop
+      leftDrawerOpen: this.$q.platform.is.desktop,
+      count: 1,
+      list: [{'isLink': true, url: '/doo'}],
+      school: ['fa fa-github'],
+      position: 'top-right',
+      isOpenNewTab: false
     }
   },
   methods: {
@@ -62,5 +72,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  .quick-menu{
+    z-index: 9;
+  }
+  .q-toolbar{
+    z-index: 8;
+  }
 </style>
