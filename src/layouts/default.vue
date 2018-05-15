@@ -61,7 +61,7 @@ export default {
       leftDrawerOpen: this.$q.platform.is.desktop,
       count: 1,
       list: [{'isLink': true, url: '/doo'}],
-      school: ['fa fa-github'],
+      school: ['fab fa-500px'],
       position: 'top-right',
       isOpenNewTab: false
     }
