@@ -1,45 +1,18 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-layout-header>
-      <quick-menu :menu-count=count  :icon-class=school :menu-url-list=list :position=position :is-open-new-tab=false></quick-menu>
+      <quick-menu :menu-count=count :icon-class=school :menu-url-list=list :position=position :is-open-new-tab=false></quick-menu>
       <q-toolbar
         color="primary"
         :glossy="$q.theme === 'mat'"
         :inverted="$q.theme === 'ios'"
       >
-        <q-btn
-          flat
-          dense
-          round
-          @click="leftDrawerOpen = !leftDrawerOpen"
-          aria-label="Menu"
-        >
-          <q-icon name="menu" />
-        </q-btn>
-
         <q-toolbar-title>
           Quasar App
           <div slot="subtitle">Running on Quasar v{{ $q.version }}</div>
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
-
-    <q-layout-drawer
-      v-model="leftDrawerOpen"
-      :content-class="$q.theme === 'mat' ? 'bg-grey-2' : null"
-    >
-      <q-list
-        no-border
-        link
-        inset-delimiter
-      >
-        <q-list-header>Essential Links</q-list-header>
-        <q-item>
-          <q-item-side icon="school" />
-          <q-item-main label="Test Item" sublabel="Vue + Quasar" />
-        </q-item>
-      </q-list>
-    </q-layout-drawer>
 
     <q-page-container>
       <router-view />
@@ -63,7 +36,8 @@ export default {
       list: [{'isLink': true, url: '/doo'}],
       school: ['fab fa-500px'],
       position: 'top-right',
-      isOpenNewTab: false
+      isOpenNewTab: false,
+      backgroundColorMenu: '#17c4c5'
     }
   },
   methods: {
@@ -73,10 +47,16 @@ export default {
 </script>
 
 <style scoped>
-  .quick-menu{
+  .q-layout-header >.quick-menu{
     z-index: 9;
+    top: 10px!important;
   }
   .q-toolbar{
     z-index: 8;
+    padding: 4px 30px;
+    min-height: 80px;
+  }
+  .q-toolbar > .q-toolbar-title{
+    padding: 0;
   }
 </style>
