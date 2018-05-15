@@ -1,15 +1,16 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-layout-header>
-      <quick-menu :menu-count=count :icon-class=school :menu-url-list=list :position=position :is-open-new-tab=false></quick-menu>
+      <quick-menu :menu-count=count @click="testFn" :background-color=backgroundColorMenu :color=color :icon-class=iconArr :menu-url-list=list :position=position :is-open-new-tab=false></quick-menu>
       <q-toolbar
-        color="primary"
-        :glossy="$q.theme === 'mat'"
+        color="grey-12"
+        :glossy="false"
         :inverted="$q.theme === 'ios'"
+        text-color="dark"
       >
         <q-toolbar-title>
-          Quasar App
-          <div slot="subtitle">Running on Quasar v{{ $q.version }}</div>
+          Elsolo's App
+          <div slot="subtitle">Building for portfolio</div>
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
@@ -23,7 +24,6 @@
 <script>
 import { openURL } from 'quasar'
 import quickMenu from 'vue-quick-menu'
-
 export default {
   name: 'LayoutDefault',
   components: {
@@ -32,22 +32,33 @@ export default {
   data () {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop,
-      count: 1,
-      list: [{'isLink': true, url: '/doo'}],
-      school: ['fab fa-500px'],
+      count: 4,
+      list: [{'isLink': true, url: '/doo'}, {'isLink': true, url: '/doo'}, {'isLink': true, url: '/doo'}, {'isLink': true, url: '/'}],
+      iconArr: ['fab fa-studiovinari', 'fab fa-connectdevelop', 'far fa-envelope-open', 'fas fa-terminal'],
       position: 'top-right',
       isOpenNewTab: false,
-      backgroundColorMenu: '#17c4c5'
+      backgroundColorMenu: 'rgba(129, 191, 100, 0.9)',
+      color: '#fff'
     }
   },
   methods: {
-    openURL
+    openURL,
+    testFn () {
+      alert('')
+    }
+  },
+  created: function () {
+    // let elem = document.getElementsByClassName('quick-menu')[0]
+    // console.log(elem)
+    // elem.addEventListener('click', function () {
+    //   alert('')
+    // })
   }
 }
 </script>
 
 <style scoped>
-  .q-layout-header >.quick-menu{
+  .q-layout-header > .quick-menu{
     z-index: 9;
     top: 10px!important;
   }
