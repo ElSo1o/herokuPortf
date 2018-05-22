@@ -4,23 +4,24 @@
       side="right"
       v-model="right"
       :content-class="$q.theme === 'mat' ? 'bg-grey-3' : null"
+      v-if="isNotMobVersion"
     >
         <q-list-header>Menu</q-list-header>
-      <q-item to="/home">
+      <q-item to="/index/home">
         <q-item-side icon="account circle" />
         <q-item-main label="Home" sublabel="About me" />
       </q-item>
-        <q-item to="/skills">
+        <q-item to="/index/skills">
           <q-item-side icon="code" />
           <q-item-main label="Skills" sublabel="What i use" />
         </q-item>
-        <q-item to="/portfolio">
+        <q-item to="/index/portfolio">
           <q-item-side icon="view_array" />
           <q-item-main label="Portfolio" sublabel="Examples of my work" />
         </q-item>
-        <q-item to="/contacts">
+        <q-item to="/index/contacts">
           <q-item-side icon="pin_drop" />
-          <q-item-main label="Contacts" sublabel="...on a Layout" />
+          <q-item-main label="Contacts" sublabel="Contact me" />
         </q-item>
         <div v-if="scrolling" style="padding: 25px 16px 16px;">
           <p class="caption" v-for="n in 50" :key="`left-${n}`">
@@ -39,7 +40,29 @@
           Elsolo's App
           <div slot="subtitle">Building for portfolio</div>
         </q-toolbar-title>
-        <q-btn flat round dense icon="menu" @click="right = !right" aria-label="Toggle menu on right side" />
+        <q-btn flat round dense icon="menu" @click="right = !right" v-if="isNotMobVersion" aria-label="Toggle menu on right side" />
+        <q-fab v-else icon="keyboard_arrow_left" direction="left" color="green-4">
+          <q-fab-action
+            color="cyan-7"
+            icon="adb"
+            @click="routerLink('skills')"
+          />
+          <q-fab-action
+            color="cyan-7"
+            icon="developer_mode"
+            @click="routerLink('portfolio')"
+          />
+          <q-fab-action
+            color="cyan-7"
+            icon="contact_mail"
+            @click="routerLink('contacts')"
+          />
+          <q-fab-action
+            color="cyan-7"
+            icon="alarm"
+            @click="routerLink('home')"
+          />
+        </q-fab>
       </q-toolbar>
     </q-layout-header>
 
@@ -60,23 +83,20 @@ export default {
       scrolling: true,
       right: false,
       leftDrawerOpen: this.$q.platform.is.desktop,
-      isOpenNewTab: false,
-      backgroundColorMenu: 'rgba(129, 191, 100, 0.9)',
-      color: '#fff'
+      isNotMobVersion: true
     }
   },
   methods: {
     openURL,
-    testFn () {
-      alert('')
+    routerLink (link) {
+      this.$router.push(`/index/${link}`)
     }
   },
   created: function () {
-    // let elem = document.getElementsByClassName('quick-menu')[0]
-    // console.log(elem)
-    // elem.addEventListener('click', function () {
-    //   alert('')
-    // })
+    if (this.$q.platform.is.mobile) {
+      this.isNotMobVersion = false
+    }
+    console.log(this.$q)
   }
 }
 </script>
