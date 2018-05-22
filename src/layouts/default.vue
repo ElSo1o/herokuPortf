@@ -102,4 +102,10 @@ export default {
 </script>
 
 <style scoped>
+  .q-toolbar-title{
+    padding: 0;
+  }
+  .q-toolbar{
+    padding: 4px 18px;
+  }
 </style>
