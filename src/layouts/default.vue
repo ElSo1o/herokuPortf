@@ -98,7 +98,7 @@ export default {
     if (this.$q.platform.is.mobile) {
       this.isNotMobVersion = false
     }
-    console.log(this.$q)
+    // console.log(this.$q)
   }
 }
 </script>
