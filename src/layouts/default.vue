@@ -3,8 +3,10 @@
     <q-layout-drawer
       side="right"
       v-model="right"
-      :content-class="$q.theme === 'mat' ? 'bg-grey-3' : null"
+      text-color="white"
+      :content-class="$q.theme === 'mat' ? 'bg-blue-grey-7' : null"
       v-if="isNotMobVersion"
+      inverted
     >
         <q-list-header>Menu</q-list-header>
       <q-item to="/index/home">
@@ -31,10 +33,10 @@
     <q-layout-header>
       <q-toolbar
         side="right"
-        color="grey-12"
+        color="blue-grey-9"
         :glossy="false"
         :inverted="$q.theme === 'ios'"
-        text-color="dark"
+        text-color="white"
       >
         <q-toolbar-title>
           Elsolo's App
@@ -66,7 +68,7 @@
       </q-toolbar>
     </q-layout-header>
 
-    <q-page-container>
+    <q-page-container style="padding: 0;">
       <router-view />
     </q-page-container>
   </q-layout>
@@ -101,11 +103,34 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+  /**{*/
+    /*font-family: Domus;*/
+  /*}*/
   .q-toolbar-title{
     padding: 0;
+    font-size: 27px;
+  }
+  .q-toolbar-subtitle{
+    font-size: 18px;
+  }
+  .q-list-header{
+    font-size: 24px;
+  }
+  .q-item{
+    font-size: 18px;
   }
   .q-toolbar{
-    padding: 4px 18px;
+    padding: 4px 40px;
+  }
+  .bg-blue-grey-9, .bg-blue-grey-7{
+    background-color: #37474fbf !important;
+  }
+  /*.q-drawer-container{*/
+    /*color: #ffdead;*/
+  /*}*/
+  .q-item-sublabel{
+    color: whitesmoke;
+    opacity: 0.8;
   }
 </style>

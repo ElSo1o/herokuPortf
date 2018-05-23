@@ -1,18 +1,22 @@
 <template>
   <div class="contentHome">
-    <div class="typerBlock">
-      <vue-typer
-        caret-animation='smooth'
-        :type-delay='70'
-        :pre-erase-delay='3000'
-        :text=descriptionTyper>
-      </vue-typer>
+    <div class="leftContentHome">
+      <div class="typerBlock">
+        <vue-typer
+          caret-animation='smooth'
+          :type-delay='70'
+          :pre-erase-delay='4000'
+          :text=descriptionTyper>
+        </vue-typer>
+      </div>
     </div>
     <div class="glitch">
       <div class="glitch-img"></div>
       <div class="glitch-img"></div>
       <div class="glitch-img"></div>
       <div class="glitch-img"></div>
+      <div class="glitch-img"></div>
+      <div class="bgGlitch"></div>
     </div>
     <!--<div>-->
       <!--<text-glitch-->
@@ -33,7 +37,7 @@ export default {
   },
   data () {
     return {
-      descriptionTyper: ['Hello there! My name is Vlad', `I'm a Front-end developer`]
+      descriptionTyper: ['Hello there! My name is Vlad,this site is made specifically for demonstrating my portfolio and my skills', `I have been working as a web developer for about two years`, `And I am engaged in front-end development`]
     }
   }
 }
@@ -43,43 +47,46 @@ export default {
   .contentHome{
     width: 100%;
     height: 100vh;
-    padding: 20px 18px;
+    padding: 60px 40px;
   }
   .vue-typer {
-    font-size: 4em;
+    font-size: 2rem;
   }
   .typerBlock{
     max-width: 462px;
-    margin: 0 auto;
+    z-index: 4;
+    padding-top: 60px;
   }
   .vue-typer .custom.char.typed {
-    color: #99a1a0;
+    color: whitesmoke;
+    opacity: 0.9;
+    text-shadow: 5px 4px 9px rgba(152, 150, 150, 0.6);
   }
-
-  *,
-  *::after,
-  *::before {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0
+  .leftContentHome{
+    width: 50%;
   }
-
   .glitch {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    overflow: hidden
+    overflow: hidden;
+    z-index: -1;
   }
-
+  .bgGlitch{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #13131381;
+  }
   .glitch-img {
     position: absolute;
     top: calc(-1 * 5px);
     left: calc(-1 * 10px);
     width: calc(100% + 10px * 2);
     height: calc(100% + 5px * 2);
-    background: url(https://raw.githubusercontent.com/mostafazke/udacity-problem-set/master/watch-dogs.jpg) no-repeat 50% 0;
+    background: url(../../statics/bg.jpeg) no-repeat 50% 0;
     background-color: transparent;
     background-size: cover;
     transform: translate3d(0, 0, 0);
@@ -113,6 +120,11 @@ export default {
     background-color: transparent;
     background-blend-mode: none;
     animation-name: glitch-anim-3
+  }
+  .glitch .glitch-img:nth-child(5) {
+    background-color: transparent;
+    background-blend-mode: none;
+    animation-name: glitch-anim-2
   }
 
   /* Animations */
