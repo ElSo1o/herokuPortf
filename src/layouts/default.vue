@@ -8,7 +8,15 @@
       v-if="isNotMobVersion"
       inverted
     >
-        <q-list-header>Menu</q-list-header>
+        <q-list-header>
+          <div class="logo">
+            <div></div>
+            <div>
+              <h5>Vlad Legusha</h5>
+              <span>Front-end developer</span>
+            </div>
+          </div>
+        </q-list-header>
       <q-item to="/index/home">
         <q-item-side icon="account circle" />
         <q-item-main label="Home" sublabel="About me" />
@@ -33,7 +41,7 @@
     <q-layout-header>
       <q-toolbar
         side="right"
-        color="blue-grey-9"
+        color="primary"
         :glossy="false"
         :inverted="$q.theme === 'ios'"
         text-color="white"
@@ -71,6 +79,16 @@
     <q-page-container style="padding: 0;">
       <router-view />
     </q-page-container>
+    <q-layout-footer v-model="footer" :reveal="footerReveal">
+      <demo-tabs v-if="$q.theme === 'ios'" />
+      <q-toolbar :inverted="$q.theme === 'ios'">
+        <q-toolbar-title>
+          <div class="footer">
+            <p>Footer</p>
+          </div>
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-layout-footer>
   </q-layout>
 </template>
 
@@ -85,7 +103,9 @@ export default {
       scrolling: true,
       right: false,
       leftDrawerOpen: this.$q.platform.is.desktop,
-      isNotMobVersion: true
+      isNotMobVersion: true,
+      footerReveal: false,
+      footer: true
     }
   },
   methods: {
@@ -95,9 +115,9 @@ export default {
     }
   },
   created: function () {
-    if (this.$q.platform.is.mobile) {
-      this.isNotMobVersion = false
-    }
+    // if (this.$q.platform.is.mobile) {
+    //   this.isNotMobVersion = false
+    // }
     // console.log(this.$q)
   }
 }
@@ -116,6 +136,9 @@ export default {
   }
   .q-list-header{
     font-size: 24px;
+    color: whitesmoke;
+    opacity: 0.8;
+    padding: 0;
   }
   .q-item{
     font-size: 18px;
@@ -132,5 +155,32 @@ export default {
   .q-item-sublabel{
     color: whitesmoke;
     opacity: 0.8;
+  }
+  .logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: normal;
+    padding: 28px 0;
+  }
+  .logo > div:first-child{
+    width: 128px;
+    height: 128px;
+    background-image: url('/statics/logo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-position-x: -20px;
+  }
+  .logo > div:last-child{
+    text-align: center;
+    padding-top: 14px;
+  }
+  .logo > div:last-child span{
+    font-size: 20px;
+    font-weight: 700;
+    color: whitesmoke;
+  }
+  .footer{
   }
 </style>
