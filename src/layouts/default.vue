@@ -4,7 +4,7 @@
       side="right"
       v-model="right"
       text-color="white"
-      :content-class="$q.theme === 'mat' ? 'bg-blue-grey-7' : null"
+      :content-class="$q.theme === 'mat' ? 'bg-primary' : null"
       v-if="isNotMobVersion"
       inverted
     >
@@ -145,9 +145,6 @@ export default {
   }
   .q-toolbar{
     padding: 4px 40px;
-  }
-  .bg-blue-grey-9, .bg-blue-grey-7{
-    background-color: #37474fbf !important;
   }
   /*.q-drawer-container{*/
     /*color: #ffdead;*/

@@ -3,11 +3,11 @@
     <div class="glitch-img"></div>
     <div class="glitch-img"></div>
     <div class="glitch-img"></div>
-    <div class="glitch-img"></div>
-    <div class="glitch-img"></div>
-    <div class="glitch-img"></div>
-    <div class="glitch-img"></div>
-    <div class="glitch-img"></div>
+    <!--<div class="glitch-img"></div>-->
+    <!--<div class="glitch-img"></div>-->
+    <!--<div class="glitch-img"></div>-->
+    <!--<div class="glitch-img"></div>-->
+    <!--<div class="glitch-img"></div>-->
     <div class="bgGlitch"></div>
   </div>
 </template>
@@ -31,8 +31,8 @@ export default {
   .bgGlitch{
     position: absolute;
     width: 100%;
-    height: 100vh;
-    background-color: #13131381;
+    height: 100%;
+    background-color: #13131336;
   }
   .glitch-img {
     position: absolute;
@@ -75,26 +75,26 @@ export default {
     background-blend-mode: none;
     animation-name: glitch-anim-3
   }
-  .glitch .glitch-img:nth-child(5) {
-    background-color: transparent;
-    background-blend-mode: darken;
-    animation-name: glitch-anim-1
-  }
-  .glitch .glitch-img:nth-child(6) {
-    background-color: transparent;
-    background-blend-mode: darken;
-    animation-name: glitch-anim-3
-  }
-  .glitch .glitch-img:nth-child(7) {
-    background-color: transparent;
-    background-blend-mode: color;
-    animation-name: glitch-anim-2
-  }
-  .glitch .glitch-img:nth-child(8) {
-    background-color: transparent;
-    background-blend-mode: screen;
-    animation-name: glitch-anim-1
-  }
+  /*.glitch .glitch-img:nth-child(5) {*/
+    /*background-color: transparent;*/
+    /*background-blend-mode: darken;*/
+    /*animation-name: glitch-anim-1*/
+  /*}*/
+  /*.glitch .glitch-img:nth-child(6) {*/
+    /*background-color: transparent;*/
+    /*background-blend-mode: darken;*/
+    /*animation-name: glitch-anim-3*/
+  /*}*/
+  /*.glitch .glitch-img:nth-child(7) {*/
+    /*background-color: transparent;*/
+    /*background-blend-mode: color;*/
+    /*animation-name: glitch-anim-2*/
+  /*}*/
+  /*.glitch .glitch-img:nth-child(8) {*/
+    /*background-color: transparent;*/
+    /*background-blend-mode: screen;*/
+    /*animation-name: glitch-anim-1*/
+  /*}*/
 
   /* Animations */
 
@@ -307,6 +307,14 @@ export default {
       transform: translate3d(0, 0, 0);
       -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
       clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    }
+  }
+  @media screen and (max-width: 1198px) {
+    .glitch-img {
+      background-position-x: 60%;
+    }
+    .glitch{
+      height: 100vh;
     }
   }
 </style>

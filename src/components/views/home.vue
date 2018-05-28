@@ -9,11 +9,7 @@
           :text=descriptionTyper>
         </vue-typer>
       </div>
-      <div class="links block">
-        <div class="linkNavigation"></div>
-        <div class="linkNavigation"></div>
-        <div class="linkNavigation"></div>
-      </div>
+      <router-links></router-links>
     </div>
     <bg-glitch></bg-glitch>
   </div>
@@ -23,27 +19,24 @@
 import { VueTyper } from 'vue-typer'
 import TextGlitch from 'vue-text-glitch'
 import bgGlitch from 'src/components/UI_components/bgGlitch'
+import routerLinks from 'src/components/UI_components/routerLinks'
 export default {
   name: 'home',
   components: {
     TextGlitch,
     VueTyper,
-    bgGlitch
+    bgGlitch,
+    routerLinks
   },
   data () {
     return {
       descriptionTyper: [
-        'Hello there!',
-        'Let me not tell you a lot about myself...',
-        'My name is Vlad,and I use a nickname ElSolo',
-        'This site is made specifically for demonstrating my portfolio and my skills',
-        `I have been working as a front-end developer for about two years`,
-        `Most of all in this area I'm attracted to JavaScript`,
-        `I use Vue.js, Node.js and Quasar Framework for mobile app`,
-        `I want to continue to study these technologies`,
-        `But also I'm interested in learning other, new technologies`,
-        `I quickly train and strive to develop in the field of web development`,
-        `You can go to the skills or portfolio section to rate my knowledge`,
+        'Hello there! Let me not tell you a lot about myself...',
+        'My name is Vlad,and I use a nickname ElSolo,this site is made specifically for demonstrating my portfolio and my skills,I have been working as a front-end developer for about two years,Most of all in this area I\'m attracted to JavaScript,I use Vue.js, Node.js and Quasar Framework for mobile app',
+        ``,
+        ``,
+        `I want to continue to study these technologies,But also I'm interested in learning other, new technologies,I quickly train and strive to develop in the field of web development,You can go to the skills or portfolio section to rate my knowledge`,
+        ``,
         `All the best for you!`
       ]
     }
@@ -54,14 +47,13 @@ export default {
 <style>
   .contentHome{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     padding: 60px 40px;
   }
   .vue-typer {
     font-size: 2rem;
   }
   .typerBlock{
-    max-width: 600px;
     z-index: 4;
     position: absolute;
     top: 0;
@@ -75,12 +67,19 @@ export default {
     width: 50%;
     position: relative;
     margin: 120px 0 0 0;
-    padding: 80px 0 0 0;
+    padding: 120px 0 0 0;
   }
   /**Media**/
+  @media screen and (max-width: 1500px) {
+    .leftContentHome {
+      margin: 0 auto;
+      margin-top: 60px;
+    }
+  }
   @media screen and (max-width: 700px) {
     .leftContentHome {
       width: 100%;
+      margin: 20px 0 0 0;
     }
     .typerBlock {
       margin: 0 auto;
