@@ -33,10 +33,7 @@ export default {
       descriptionTyper: [
         'Hello there! Let me not tell you a lot about myself...',
         'My name is Vlad,and I use a nickname ElSolo,this site is made specifically for demonstrating my portfolio and my skills,I have been working as a front-end developer for about two years,Most of all in this area I\'m attracted to JavaScript,I use Vue.js, Node.js and Quasar Framework for mobile app',
-        ``,
-        ``,
         `I want to continue to study these technologies,But also I'm interested in learning other, new technologies,I quickly train and strive to develop in the field of web development,You can go to the skills or portfolio section to rate my knowledge`,
-        ``,
         `All the best for you!`
       ]
     }
@@ -45,9 +42,22 @@ export default {
 </script>
 
 <style>
+  #textAnim:focus {
+    outline: none;
+  }
+  #textAnim span {
+    vertical-align: middle;
+    line-height: 1.5em;
+    transition: font-size 2s cubic-bezier(0, 1, 0, 1);
+  }
+  #textAnim span:hover {
+    font-size: 1.5em;
+    line-height: 1em;
+    transition: font-size .2s cubic-bezier(0, 0.75, 0, 1);
+  }
   .contentHome{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     padding: 60px 40px;
   }
   .vue-typer {
@@ -64,9 +74,9 @@ export default {
     text-shadow: 5px 4px 9px rgba(152, 150, 150, 0.6);
   }
   .leftContentHome{
-    width: 50%;
+    width: 75%;
     position: relative;
-    margin: 120px 0 0 0;
+    margin: 120px auto;
     padding: 120px 0 0 0;
   }
   /**Media**/
@@ -83,6 +93,14 @@ export default {
     }
     .typerBlock {
       margin: 0 auto;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .contentHome{
+      height: 100%;
+    }
+    .leftContentHome{
+      padding: 380px 0 0 0;
     }
   }
 </style>

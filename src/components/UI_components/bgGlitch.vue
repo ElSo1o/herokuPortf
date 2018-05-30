@@ -24,7 +24,7 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
     z-index: -1;
   }
@@ -313,8 +313,8 @@ export default {
     .glitch-img {
       background-position-x: 60%;
     }
-    .glitch{
-      height: 100vh;
-    }
+    /*.glitch{*/
+      /*height: 100vh;*/
+    /*}*/
   }
 </style>

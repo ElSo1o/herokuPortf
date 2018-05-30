@@ -47,7 +47,7 @@
         text-color="white"
       >
         <q-toolbar-title>
-          Elsolo's App
+          <span>Elsolo's App</span>
           <div slot="subtitle">Building for portfolio</div>
         </q-toolbar-title>
         <q-btn flat round dense icon="menu" @click="right = !right" v-if="isNotMobVersion" aria-label="Toggle menu on right side" />
@@ -84,7 +84,23 @@
       <q-toolbar :inverted="$q.theme === 'ios'">
         <q-toolbar-title>
           <div class="footer">
-            <p>Footer</p>
+            <div class="linkFooter">
+              <div class="iconFooter"></div>
+              <div class="iconFooter"></div>
+              <div class="iconFooter"></div>
+            </div>
+            <div class="copyright" id="textAnim">
+              <span>&copy;</span>
+              <span>{{getYear}}</span>
+              <span>b</span>
+              <span>y &nbsp;</span>
+              <span>E</span>
+              <span>l</span>
+              <span>s</span>
+              <span>o</span>
+              <span>l</span>
+              <span>o</span>
+            </div>
           </div>
         </q-toolbar-title>
       </q-toolbar>
@@ -114,6 +130,11 @@ export default {
       this.$router.push(`/index/${link}`)
     }
   },
+  computed: {
+    getYear () {
+      return new Date().getFullYear()
+    }
+  },
   created: function () {
     // if (this.$q.platform.is.mobile) {
     //   this.isNotMobVersion = false
@@ -129,10 +150,10 @@ export default {
   /*}*/
   .q-toolbar-title{
     padding: 0;
-    font-size: 27px;
+    font-size: 21px;
   }
   .q-toolbar-subtitle{
-    font-size: 18px;
+    font-size: 16px;
   }
   .q-list-header{
     font-size: 24px;
@@ -179,5 +200,50 @@ export default {
     color: whitesmoke;
   }
   .footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .copyright > span{
+    font-size: 21px;
+  }
+  #textAnim:focus {
+    outline: none;
+  }
+  #textAnim span {
+    vertical-align: middle;
+    line-height: 1.5em;
+    transition: font-size 2s cubic-bezier(0, 1, 0, 1);
+    outline-width: 1px;
+  }
+  #textAnim span:hover {
+    font-size: 1.5em;
+    line-height: 1em;
+    transition: font-size .2s cubic-bezier(0, 0.75, 0, 1);
+  }
+  .iconFooter{
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  .iconFooter:hover{
+    animation:spin 2s linear infinite;
+  }
+  @keyframes spin { 100% { transform:rotateY(360deg); } }
+  .linkFooter{
+    display: flex;
+    justify-content: flex-start;
+  }
+  .linkFooter > div:first-child{
+    background-image: url('/statics/vk.svg');
+  }
+  .linkFooter > div:nth-child(2){
+    background-image: url('/statics/facebook.svg');
+  }
+  .linkFooter > div:last-child{
+    background-image: url('/statics/git.svg');
   }
 </style>
