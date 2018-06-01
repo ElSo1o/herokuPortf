@@ -3,7 +3,7 @@
     <div class="glitch-img"></div>
     <div class="glitch-img"></div>
     <div class="glitch-img"></div>
-    <!--<div class="glitch-img"></div>-->
+    <div class="glitch-img"></div>
     <!--<div class="glitch-img"></div>-->
     <!--<div class="glitch-img"></div>-->
     <!--<div class="glitch-img"></div>-->
