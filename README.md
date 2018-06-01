@@ -1,3 +1,4 @@
-# Quasar App
+# ElSolo App, build for Portfolio
 
-> WIP
+Quasar SPA 
+> Install `npm i` and `quasar dev`
