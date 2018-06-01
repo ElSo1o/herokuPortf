@@ -1,5 +1,4 @@
 <template>
-  <q-page class="flex flex-center">
     <!--<transition-->
       <!--name="custom-classes-transition"-->
       <!--enter-active-class="animated zoomOutUp"-->
@@ -8,7 +7,6 @@
     <!--<router-view></router-view>-->
     <!--</transition>-->
     <router-view></router-view>
-  </q-page>
 </template>
 
 <style>

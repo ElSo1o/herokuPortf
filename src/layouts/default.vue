@@ -75,10 +75,7 @@
         </q-fab>
       </q-toolbar>
     </q-layout-header>
-
-    <q-page-container style="padding: 0;">
       <router-view />
-    </q-page-container>
     <q-layout-footer v-model="footer" :reveal="footerReveal">
       <demo-tabs v-if="$q.theme === 'ios'" />
       <q-toolbar :inverted="$q.theme === 'ios'">
@@ -89,17 +86,8 @@
               <div class="iconFooter"></div>
               <div class="iconFooter"></div>
             </div>
-            <div class="copyright" id="textAnim">
-              <span>&copy;</span>
-              <span>{{getYear}}</span>
-              <span>b</span>
-              <span>y &nbsp;</span>
-              <span>E</span>
-              <span>l</span>
-              <span>s</span>
-              <span>o</span>
-              <span>l</span>
-              <span>o</span>
+            <div class="copyright">
+              <span>&copy; {{getYear}} by Elsolo</span>
             </div>
           </div>
         </q-toolbar-title>

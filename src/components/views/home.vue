@@ -2,12 +2,6 @@
   <div class="contentHome">
     <div class="leftContentHome">
       <div class="typerBlock">
-        <vue-typer
-          caret-animation='smooth'
-          :type-delay='70'
-          :pre-erase-delay='3000'
-          :text=descriptionTyper>
-        </vue-typer>
       </div>
       <router-links></router-links>
     </div>
@@ -16,7 +10,6 @@
 </template>
 
 <script>
-import { VueTyper } from 'vue-typer'
 import TextGlitch from 'vue-text-glitch'
 import bgGlitch from 'src/components/UI_components/bgGlitch'
 import routerLinks from 'src/components/UI_components/routerLinks'
@@ -24,18 +17,11 @@ export default {
   name: 'home',
   components: {
     TextGlitch,
-    VueTyper,
     bgGlitch,
     routerLinks
   },
   data () {
     return {
-      descriptionTyper: [
-        'Hello there! Let me not tell you a lot about myself...',
-        'My name is Vlad,and I use a nickname ElSolo,this site is made specifically for demonstrating my portfolio and my skills,I have been working as a front-end developer for about two years,Most of all in this area I\'m attracted to JavaScript,I use Vue.js, Node.js and Quasar Framework for mobile app',
-        `I want to continue to study these technologies,But also I'm interested in learning other, new technologies,I quickly train and strive to develop in the field of web development,You can go to the skills or portfolio section to rate my knowledge`,
-        `All the best for you!`
-      ]
     }
   }
 }
@@ -57,7 +43,7 @@ export default {
   }
   .contentHome{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     padding: 60px 40px;
   }
   .vue-typer {
