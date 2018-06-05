@@ -1,20 +1,30 @@
 <template>
   <div class="glitch">
     <div class="glitch-img"></div>
-    <div class="glitch-img"></div>
-    <div class="glitch-img"></div>
-    <div class="glitch-img"></div>
-    <!--<div class="glitch-img"></div>-->
-    <!--<div class="glitch-img"></div>-->
-    <!--<div class="glitch-img"></div>-->
-    <!--<div class="glitch-img"></div>-->
+    <div class="glitch-img" :style="{ 'animation-duration': animationName + 's' }"></div>
+    <div class="glitch-img" :style="{ 'animation-duration': animationName + 's' }"></div>
+    <div class="glitch-img" :style="{ 'animation-duration': animationName + 's' }"></div>
     <div class="bgGlitch"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'bg-glitch'
+  name: 'bg-glitch',
+  data () {
+    return {
+      animationName: 0
+    }
+  },
+  mounted: function () {
+    (function loopsAnimate () {
+      setTimeout(() => {
+        console.log('test')
+        this.animationName = 8
+        loopsAnimate()
+      }, 5000)
+    })()
+  }
 }
 </script>
 
@@ -52,7 +62,7 @@ export default {
   }
 
   .glitch .glitch-img:nth-child(n+2) {
-    animation-duration: 6s;
+    animation-duration: 8s;
     animation-delay: 8s;
     animation-timing-function: linear;
     animation-iteration-count: infinite
