@@ -1,9 +1,9 @@
 <template>
   <div class="glitch">
     <div class="glitch-img"></div>
-    <div class="glitch-img" :style="{ 'animation-duration': animationName + 's' }"></div>
-    <div class="glitch-img" :style="{ 'animation-duration': animationName + 's' }"></div>
-    <div class="glitch-img" :style="{ 'animation-duration': animationName + 's' }"></div>
+    <div :class="{'glitch-img': showAnimate}" :style="{'animation-delay': animationName + 's'}"></div>
+    <div :class="{'glitch-img': showAnimate}" :style="{'animation-delay': animationName + 's'}"></div>
+    <div :class="{'glitch-img': showAnimate}" :style="{'animation-delay': animationName + 's'}"></div>
     <div class="bgGlitch"></div>
   </div>
 </template>
@@ -13,17 +13,38 @@ export default {
   name: 'bg-glitch',
   data () {
     return {
-      animationName: 0
+      animationName: 2,
+      test1: 8,
+      showAnimate: true
     }
   },
   mounted: function () {
-    (function loopsAnimate () {
+    const recursion = (time) => {
+      // this.showAnimate = false
       setTimeout(() => {
-        console.log('test')
-        this.animationName = 8
-        loopsAnimate()
-      }, 5000)
-    })()
+        // const getRandomArbitrary = (min, max) => {
+        //   return Math.ceil(Math.random() * (max - min) + min)
+        // }
+        // this.animationName = getRandomArbitrary(1, 30)
+        // console.log(this.animationName)
+        let promise = new Promise((resolve, reject) => {
+          // this.animationName = getRandomArbitrary(1, 10)
+          // recursion((this.animationName * 1000) + 2000)
+          resolve(this.animationName)
+        })
+        promise.then((result) => {
+          console.log(result)
+          recursion((this.animationName + 1) * 1000)
+          // setTimeout(() => {
+          //   // this.showAnimate = true
+          //   // console.log(this.showAnimate)
+          // }, (this.animationName * 1000) + 3000)
+        }).catch((error) => {
+          console.error(error)
+        })
+      }, time)
+    }
+    recursion(3000)
   }
 }
 </script>
@@ -64,26 +85,26 @@ export default {
   .glitch .glitch-img:nth-child(n+2) {
     animation-duration: 8s;
     animation-delay: 8s;
-    animation-timing-function: linear;
+    animation-timing-function: cubic-bezier(0.18, -0.58, 0, 1.71);
     animation-iteration-count: infinite
   }
 
   .glitch .glitch-img:nth-child(2) {
     background-color: transparent;
     background-blend-mode: none;
-    animation-name: glitch-anim-1
+    animation: glitch-anim-1 2s;
   }
 
   .glitch .glitch-img:nth-child(3) {
     background-color: transparent;
     background-blend-mode: none;
-    animation-name: glitch-anim-2
+    animation: glitch-anim-2 2s;
   }
 
   .glitch .glitch-img:nth-child(4) {
     background-color: transparent;
     background-blend-mode: none;
-    animation-name: glitch-anim-3
+    animation: glitch-anim-3 2s;
   }
   /*.glitch .glitch-img:nth-child(5) {*/
     /*background-color: transparent;*/

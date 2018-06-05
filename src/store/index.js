@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import example from './module-example'
+import module from './store-module'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    example
+    module
   }
 })
 
