@@ -1,20 +1,55 @@
 <template>
   <div class="glitch">
     <div class="glitch-img"></div>
-    <div class="glitch-img"></div>
-    <div class="glitch-img"></div>
-    <div class="glitch-img"></div>
-    <!--<div class="glitch-img"></div>-->
-    <!--<div class="glitch-img"></div>-->
-    <!--<div class="glitch-img"></div>-->
-    <!--<div class="glitch-img"></div>-->
+    <div class="glitch-img" :style="{'animation-delay': animationName + 's'}"></div>
+    <div class="glitch-img" :style="{'animation-delay': animationName + 's'}"></div>
+    <div class="glitch-img" :style="{'animation-delay': animationName + 's'}"></div>
     <div class="bgGlitch"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'bg-glitch'
+  name: 'bg-glitch',
+  data () {
+    return {
+      animationName: 12,
+      test1: true
+    }
+  },
+  mounted: function () {
+    const recursion = (time) => {
+      const getRandomArbitrary = (min, max) => {
+        return Math.ceil(Math.random() * (max - min) + min)
+      }
+      // this.showAnimate = false
+      let promise = new Promise((resolve, reject) => {
+        this.animationName = getRandomArbitrary(1, 10)
+        // recursion((this.animationName * 1000) + 2000)
+        resolve(this.animationName)
+      })
+      promise.then((result) => {
+        console.log(result)
+        // console.log((this.animationName + 1) * 1000)
+        recursion((this.animationName + 1) * 1000)
+        // setTimeout(() => {
+        //   // this.showAnimate = true
+        //   // console.log(this.showAnimate)
+        // }, (this.animationName * 1000) + 3000)
+        // setTimeout(() => {
+        //   const getRandomArbitrary = (min, max) => {
+        //     return Math.ceil(Math.random() * (max - min) + min)
+        //   }
+        //   // this.animationName = getRandomArbitrary(1, 30)
+        //   // console.log(this.animationName)
+        //
+        // }, time)
+      }).catch((error) => {
+        console.error(error)
+      })
+    }
+    recursion(0)
+  }
 }
 </script>
 
@@ -53,9 +88,9 @@ export default {
 
   .glitch .glitch-img:nth-child(n+2) {
     animation-duration: 6s;
-    animation-delay: 8s;
+    animation-delay: 30s;
     animation-timing-function: linear;
-    animation-iteration-count: infinite
+    animation-iteration-count: 1
   }
 
   .glitch .glitch-img:nth-child(2) {
