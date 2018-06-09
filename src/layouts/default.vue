@@ -185,7 +185,7 @@ export default {
   .logo > div:first-child{
     width: 128px;
     height: 128px;
-    background-image: url('/statics/logo.png');
+    background-image: url('../statics/logo.png');
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 50%;
