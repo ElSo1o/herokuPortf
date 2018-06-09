@@ -1,11 +1,10 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-layout-drawer
-      side="right"
-      v-model="right"
+      :side="mobile"
+      v-model="showMenuNavigation"
       text-color="white"
       :content-class="$q.theme === 'mat' ? 'bg-primary' : null"
-      v-if="isNotMobVersion"
       inverted
     >
         <q-list-header>
@@ -50,32 +49,34 @@
           <span>Elsolo's App</span>
           <div slot="subtitle">Building for portfolio</div>
         </q-toolbar-title>
-        <q-btn flat round dense icon="menu" @click="right = !right" v-if="isNotMobVersion" aria-label="Toggle menu on right side" />
-        <q-fab v-else icon="keyboard_arrow_left" direction="left" color="green-4">
-          <q-fab-action
-            color="cyan-7"
-            icon="adb"
-            @click="routerLink('skills')"
-          />
-          <q-fab-action
-            color="cyan-7"
-            icon="developer_mode"
-            @click="routerLink('portfolio')"
-          />
-          <q-fab-action
-            color="cyan-7"
-            icon="contact_mail"
-            @click="routerLink('contacts')"
-          />
-          <q-fab-action
-            color="cyan-7"
-            icon="alarm"
-            @click="routerLink('home')"
-          />
-        </q-fab>
+        <q-btn flat round dense icon="menu" @click="showMenuNavigation = !showMenuNavigation" v-if="isNotMobVersion" aria-label="Toggle menu on right side" />
+        <!--<q-fab v-else icon="keyboard_arrow_left" direction="left" color="green-4">-->
+          <!--<q-fab-action-->
+            <!--color="cyan-7"-->
+            <!--icon="adb"-->
+            <!--@click="routerLink('skills')"-->
+          <!--/>-->
+          <!--<q-fab-action-->
+            <!--color="cyan-7"-->
+            <!--icon="developer_mode"-->
+            <!--@click="routerLink('portfolio')"-->
+          <!--/>-->
+          <!--<q-fab-action-->
+            <!--color="cyan-7"-->
+            <!--icon="contact_mail"-->
+            <!--@click="routerLink('contacts')"-->
+          <!--/>-->
+          <!--<q-fab-action-->
+            <!--color="cyan-7"-->
+            <!--icon="alarm"-->
+            <!--@click="routerLink('home')"-->
+          <!--/>-->
+        <!--</q-fab>-->
       </q-toolbar>
     </q-layout-header>
-      <router-view />
+    <q-page-container>
+       <router-view />
+    </q-page-container>
     <q-layout-footer v-model="footer" :reveal="footerReveal">
       <demo-tabs v-if="$q.theme === 'ios'" />
       <q-toolbar :inverted="$q.theme === 'ios'">
@@ -105,17 +106,28 @@ export default {
   data () {
     return {
       scrolling: true,
-      right: false,
+      showMenuNavigation: true,
       leftDrawerOpen: this.$q.platform.is.desktop,
-      isNotMobVersion: true,
+      isNotMobVersion: false,
       footerReveal: false,
-      footer: true
+      footer: true,
+      mobile: 'left'
     }
   },
   methods: {
     openURL,
     routerLink (link) {
       this.$router.push(`/index/${link}`)
+    },
+    isMobile () {
+      if (this.$q.platform.is.mobile) {
+        this.mobile = 'right'
+        this.isNotMobVersion = true
+      } else {
+        this.mobile = 'left'
+        this.isNotMobVersion = false
+      }
+      return this.mobile
     }
   },
   computed: {
@@ -124,6 +136,7 @@ export default {
     }
   },
   created: function () {
+    this.isMobile()
     // if (this.$q.platform.is.mobile) {
     //   this.isNotMobVersion = false
     // }
