@@ -60,10 +60,9 @@ export default {
     text-shadow: 5px 4px 9px rgba(152, 150, 150, 0.6);
   }
   .leftContentHome{
-    width: 75%;
     position: relative;
-    margin: 120px auto;
-    padding: 120px 0 0 0;
+    /*margin: 120px auto;*/
+    /*padding: 120px 0 0 0;*/
   }
   /**Media**/
   @media screen and (max-width: 1500px) {
