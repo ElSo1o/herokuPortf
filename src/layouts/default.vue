@@ -47,7 +47,7 @@
       >
         <q-toolbar-title>
           <span>Elsolo's App</span>
-          <div slot="subtitle">Building for portfolio</div>
+          <div slot="subtitle"><span class="grClr">Building for portfolio</span></div>
         </q-toolbar-title>
         <q-btn flat round dense icon="menu" @click="showMenuNavigation = !showMenuNavigation" v-if="isNotMobVersion" aria-label="Toggle menu on right side" />
         <!--<q-fab v-else icon="keyboard_arrow_left" direction="left" color="green-4">-->
@@ -158,7 +158,7 @@ export default {
   }
   .q-list-header{
     font-size: 24px;
-    color: whitesmoke;
+    color: #164a13;
     opacity: 0.8;
     padding: 0;
   }
@@ -172,8 +172,8 @@ export default {
     /*color: #ffdead;*/
   /*}*/
   .q-item-sublabel{
-    color: whitesmoke;
-    opacity: 0.8;
+    color: #164a13;
+    font-weight: 600;
   }
   .logo{
     display: flex;
@@ -197,8 +197,11 @@ export default {
   }
   .logo > div:last-child span{
     font-size: 20px;
+    font-weight: 600;
+    color: #164a13;
+  }
+  .logo > div:last-child h5{
     font-weight: 700;
-    color: whitesmoke;
   }
   .footer{
     display: flex;
@@ -207,6 +210,10 @@ export default {
   }
   .copyright > span{
     font-size: 21px;
+  }
+  .grClr{
+    color: #164a13;
+    font-weight: 600;
   }
   #textAnim:focus {
     outline: none;

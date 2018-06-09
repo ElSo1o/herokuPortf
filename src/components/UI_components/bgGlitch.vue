@@ -67,7 +67,7 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #13131336;
+    background-color: #8fadc736;
   }
   .glitch-img {
     position: absolute;
@@ -75,7 +75,7 @@ export default {
     left: calc(-1 * 10px);
     width: calc(100% + 10px * 2);
     height: calc(100% + 5px * 2);
-    background: url(../../statics/bg.jpeg) no-repeat 50% 0;
+    background: url(../../statics/bg3.jpg) no-repeat 50% 0;
     background-color: transparent;
     background-size: cover;
     transform: translate3d(0, 0, 0);

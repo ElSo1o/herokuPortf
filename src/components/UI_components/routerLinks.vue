@@ -45,7 +45,7 @@ export default {
     padding: 24px;
     border-radius: 4px;
     transition: 0.5s;
-    background: rgba(50,84,101,0.45)
+    background: #b4d0e087
   }
   .linkNavigation:hover{
     padding: 12px;
@@ -54,7 +54,7 @@ export default {
     width: 100%;
     height: 100%;
     border-radius: 2px;
-    background: #eeeeee3d;
+    background: #e1e7f1;
     border: 1px solid #a5a4a454;
   }
   .linkNavigation a{
