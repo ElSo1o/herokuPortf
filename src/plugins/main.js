@@ -1,6 +1,6 @@
-// import something here
-require('animate.css/animate.css')
-// leave the export, even if you don't use it
+import('animate.css/animate.css')
+import vuescroll from 'vuescroll'
 export default ({ app, router, Vue }) => {
   // something to do
+  Vue.use(vuescroll)
 }

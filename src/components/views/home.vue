@@ -61,7 +61,7 @@ export default {
   }
   .leftContentHome{
     position: static;
-    overflow: auto;
+    /*overflow: auto;*/
     height: 100%;
     /*margin: 120px auto;*/
     /*padding: 120px 0 0 0;*/

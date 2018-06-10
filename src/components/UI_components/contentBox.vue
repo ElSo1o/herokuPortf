@@ -5,9 +5,19 @@
         <!--<router-link :to="{path: '/index/' + item.link}">{{item.link}}</router-link>-->
       <!--</div>-->
     <!--</div>-->
-    <div class="contentBox">
-      <router-view></router-view>
-    </div>
+    <vue-scroll :ops="ops">
+      <!-- the content you want to scroll -->
+      <!--<div-->
+        <!--class="content"-->
+        <!--v-for= "item in 100"-->
+        <!--:key="item"-->
+      <!--&gt;-->
+        <!--<span>{{item}}</span>-->
+      <!--</div>-->
+      <div class="contentBox">
+        <router-view></router-view>
+      </div>
+    </vue-scroll>
   </div>
 </template>
 
@@ -30,17 +40,34 @@ export default {
         {
           link: 'skills'
         }
-      ]
+      ],
+      ops: {
+        vuescroll: {
+          mode: 'native'
+        },
+        scrollPanel: {
+
+        },
+        scrollContent: {
+
+        },
+        vRail: {
+
+        }
+      }
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
+  .vuescroll-content{
+    height: auto;
+  }
   .sectionBox{
     text-align: center;
     height: 100%;
-    box-shadow: 0 -2px 4px -1px rgba(0,0,0,0.2), 0 -4px 5px rgba(0,0,0,0.14), 0 -1px 10px rgba(0,0,0,0.12);
+    box-shadow: 0 4px 4px -1px rgba(0,0,0,0.2), 0 -4px 4px -1px rgba(0,0,0,0.2), 4px 8px 10px rgba(0,0,0,0.12), 2px -4px 10px rgba(0,0,0,0.12);
     padding: 24px;
     border-radius: 4px;
     transition: 0.5s;
@@ -52,8 +79,11 @@ export default {
   .contentBox{
     width: 100%;
     height: 100%;
-    border-radius: 2px;
+    border-radius: 6px;
     background: #e1e7f1;
     border: 1px solid #a5a4a454;
+  }
+  .vuescroll-vertical-bar{
+    background: #778077!important;
   }
 </style>
