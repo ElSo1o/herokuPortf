@@ -1,9 +1,9 @@
 <template>
   <div class="glitch">
     <div class="glitch-img"></div>
-    <div :class="{'glitch-img': showAnimate}" :style="{'animation-delay': animationName + 's'}"></div>
-    <div :class="{'glitch-img': showAnimate}" :style="{'animation-delay': animationName + 's'}"></div>
-    <div :class="{'glitch-img': showAnimate}" :style="{'animation-delay': animationName + 's'}"></div>
+    <div class="glitch-img" :style="{'animation-delay': animationName + 's'}"></div>
+    <div class="glitch-img" :style="{'animation-delay': animationName + 's'}"></div>
+    <div class="glitch-img" :style="{'animation-delay': animationName + 's'}"></div>
     <div class="bgGlitch"></div>
   </div>
 </template>
@@ -19,32 +19,37 @@ export default {
     }
   },
   mounted: function () {
-    const recursion = (time) => {
-      // this.showAnimate = false
-      setTimeout(() => {
-        // const getRandomArbitrary = (min, max) => {
-        //   return Math.ceil(Math.random() * (max - min) + min)
-        // }
-        // this.animationName = getRandomArbitrary(1, 30)
-        // console.log(this.animationName)
-        let promise = new Promise((resolve, reject) => {
-          // this.animationName = getRandomArbitrary(1, 10)
-          // recursion((this.animationName * 1000) + 2000)
-          resolve(this.animationName)
-        })
-        promise.then((result) => {
-          console.log(result)
-          recursion((this.animationName + 1) * 1000)
-          // setTimeout(() => {
-          //   // this.showAnimate = true
-          //   // console.log(this.showAnimate)
-          // }, (this.animationName * 1000) + 3000)
-        }).catch((error) => {
-          console.error(error)
-        })
-      }, time)
-    }
-    recursion(3000)
+    // const recursion = (time) => {
+    //   const getRandomArbitrary = (min, max) => {
+    //     return Math.ceil(Math.random() * (max - min) + min)
+    //   }
+    //   // this.showAnimate = false
+    //   let promise = new Promise((resolve, reject) => {
+    //     this.animationName = getRandomArbitrary(1, 10)
+    //     // recursion((this.animationName * 1000) + 2000)
+    //     resolve(this.animationName)
+    //   })
+    //   promise.then((result) => {
+    //     console.log(result)
+    //     // console.log((this.animationName + 1) * 1000)
+    //     recursion((this.animationName + 1) * 1000)
+    //     // setTimeout(() => {
+    //     //   // this.showAnimate = true
+    //     //   // console.log(this.showAnimate)
+    //     // }, (this.animationName * 1000) + 3000)
+    //     // setTimeout(() => {
+    //     //   const getRandomArbitrary = (min, max) => {
+    //     //     return Math.ceil(Math.random() * (max - min) + min)
+    //     //   }
+    //     //   // this.animationName = getRandomArbitrary(1, 30)
+    //     //   // console.log(this.animationName)
+    //     //
+    //     // }, time)
+    //   }).catch((error) => {
+    //     console.error(error)
+    //   })
+    // }
+    // recursion(0)
   }
 }
 </script>
@@ -63,7 +68,7 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #13131336;
+    background-color: #cfdae44a;
   }
   .glitch-img {
     position: absolute;
@@ -71,7 +76,7 @@ export default {
     left: calc(-1 * 10px);
     width: calc(100% + 10px * 2);
     height: calc(100% + 5px * 2);
-    background: url(../../statics/bg.jpeg) no-repeat 50% 0;
+    background: url(../../statics/bg3.jpg) no-repeat 50% 0;
     background-color: transparent;
     background-size: cover;
     transform: translate3d(0, 0, 0);
@@ -83,10 +88,10 @@ export default {
   }
 
   .glitch .glitch-img:nth-child(n+2) {
-    animation-duration: 8s;
-    animation-delay: 8s;
-    animation-timing-function: cubic-bezier(0.18, -0.58, 0, 1.71);
-    animation-iteration-count: infinite
+    animation-duration: 6s;
+    animation-delay: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1
   }
 
   .glitch .glitch-img:nth-child(2) {

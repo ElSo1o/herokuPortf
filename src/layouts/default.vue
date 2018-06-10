@@ -1,11 +1,10 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-layout-drawer
-      side="right"
-      v-model="right"
+      :side="mobile"
+      v-model="showMenuNavigation"
       text-color="white"
       :content-class="$q.theme === 'mat' ? 'bg-primary' : null"
-      v-if="isNotMobVersion"
       inverted
     >
         <q-list-header>
@@ -48,10 +47,14 @@
       >
         <q-toolbar-title>
           <span>Elsolo's App</span>
+<<<<<<< HEAD
           <div slot="subtitle" style="color: whitesmoke">Building for portfolio</div>
+=======
+          <div slot="subtitle"><span class="grClr">Building for portfolio</span></div>
+>>>>>>> b4c984cdfe03c19983da43313c523ce45161debb
         </q-toolbar-title>
-        <q-btn flat round dense icon="menu" @click="right = !right" v-if="isNotMobVersion" aria-label="Toggle menu on right side" />
-        <q-fab v-else icon="keyboard_arrow_left" direction="left" color="green-4">
+        <q-btn flat round dense icon="menu" @click="showMenuNavigation = !showMenuNavigation" v-if="isNotMobVersion" aria-label="Toggle menu on right side" />
+        <q-fab v-else icon="keyboard_arrow_left" direction="left" color="#10750a">
           <q-fab-action
             color="cyan-7"
             icon="adb"
@@ -75,7 +78,9 @@
         </q-fab>
       </q-toolbar>
     </q-layout-header>
-      <router-view />
+    <q-page-container>
+       <router-view />
+    </q-page-container>
     <q-layout-footer v-model="footer" :reveal="footerReveal">
       <demo-tabs v-if="$q.theme === 'ios'" />
       <q-toolbar :inverted="$q.theme === 'ios'">
@@ -105,17 +110,28 @@ export default {
   data () {
     return {
       scrolling: true,
-      right: false,
+      showMenuNavigation: true,
       leftDrawerOpen: this.$q.platform.is.desktop,
-      isNotMobVersion: true,
+      isNotMobVersion: false,
       footerReveal: false,
-      footer: true
+      footer: true,
+      mobile: 'left'
     }
   },
   methods: {
     openURL,
     routerLink (link) {
       this.$router.push(`/index/${link}`)
+    },
+    isMobile () {
+      if (this.$q.platform.is.mobile) {
+        this.mobile = 'right'
+        this.isNotMobVersion = true
+      } else {
+        this.mobile = 'left'
+        this.isNotMobVersion = false
+      }
+      return this.mobile
     }
   },
   computed: {
@@ -124,6 +140,7 @@ export default {
     }
   },
   created: function () {
+    this.isMobile()
     // if (this.$q.platform.is.mobile) {
     //   this.isNotMobVersion = false
     // }
@@ -146,9 +163,15 @@ export default {
   }
   .q-list-header{
     font-size: 24px;
+<<<<<<< HEAD
     color: whitesmoke;
     opacity: 0.9;
+=======
+    color: #778077;
+    opacity: 0.8;
+>>>>>>> b4c984cdfe03c19983da43313c523ce45161debb
     padding: 0;
+    text-shadow: none;
   }
   .q-item{
     font-size: 18px;
@@ -160,8 +183,17 @@ export default {
     /*color: #ffdead;*/
   /*}*/
   .q-item-sublabel{
+<<<<<<< HEAD
     color: whitesmoke;
     opacity: 0.9;
+=======
+    color: #778077;
+    font-weight: 600;
+    text-shadow: none;
+  }
+  .q-layout-page-container{
+    height: 100vh;
+>>>>>>> b4c984cdfe03c19983da43313c523ce45161debb
   }
   .logo{
     display: flex;
@@ -173,7 +205,7 @@ export default {
   .logo > div:first-child{
     width: 128px;
     height: 128px;
-    background-image: url('/statics/logo.png');
+    background-image: url('../statics/logo.png');
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 50%;
@@ -185,9 +217,17 @@ export default {
   }
   .logo > div:last-child span{
     font-size: 20px;
+    font-weight: 600;
+    color: #778077;
+    text-shadow: none;
+  }
+  .logo > div:last-child h5{
     font-weight: 700;
+<<<<<<< HEAD
     color: whitesmoke;
     opacity: 0.9;
+=======
+>>>>>>> b4c984cdfe03c19983da43313c523ce45161debb
   }
   .footer{
     display: flex;
@@ -196,6 +236,11 @@ export default {
   }
   .copyright > span{
     font-size: 21px;
+  }
+  .grClr{
+    color: #778077;
+    font-weight: 600;
+    text-shadow: none;
   }
   #textAnim:focus {
     outline: none;
