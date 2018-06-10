@@ -16,12 +16,6 @@ export default {
       linksArr: [
         {
           link: 'skills'
-        },
-        {
-          link: 'portfolio'
-        },
-        {
-          link: 'contacts'
         }
       ]
     }
@@ -37,7 +31,6 @@ export default {
     flex-wrap: wrap;
   }
   .linkNavigation{
-    min-width: 250px;
     flex-basis: 33%;
     text-align: center;
     height: 200px;

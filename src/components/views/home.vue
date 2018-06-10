@@ -3,22 +3,21 @@
     <div class="leftContentHome">
       <div class="typerBlock">
       </div>
-      <router-links></router-links>
+      <content-box></content-box>
     </div>
-    <bg-glitch></bg-glitch>
   </div>
 </template>
 
 <script>
 import TextGlitch from 'vue-text-glitch'
 import bgGlitch from 'src/components/UI_components/bgGlitch'
-import routerLinks from 'src/components/UI_components/routerLinks'
+import contentBox from 'src/components/UI_components/contentBox'
 export default {
   name: 'home',
   components: {
     TextGlitch,
     bgGlitch,
-    routerLinks
+    contentBox
   },
   data () {
     return {
