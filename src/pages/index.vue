@@ -7,28 +7,27 @@
     <!--<router-view></router-view>-->
     <!--</transition>-->
   <div class="content">
-    <router-view></router-view>
+    <content-box>
+    </content-box>
     <bg-glitch></bg-glitch>
   </div>
 </template>
 
 <style>
+  .content{
+    padding: 48px 40px;
+    height: 100%;
+  }
 </style>
 
 <script>
 import bgGlitch from 'src/components/UI_components/bgGlitch'
-import home from 'src/components/views/home'
-import skills from 'src/components/views/skills'
-import portfolio from 'src/components/views/portfolio'
-import contacts from 'src/components/views/contacts'
+import contentBox from 'src/components/UI_components/contentBox'
 export default {
   name: 'PageIndex',
   components: {
     bgGlitch,
-    home,
-    skills,
-    portfolio,
-    contacts
+    contentBox
   }
 }
 </script>

@@ -1,9 +1,13 @@
 <template>
   <div class="contentHome">
     <div class="leftContentHome">
-      <div class="typerBlock">
-      </div>
-      <content-box></content-box>
+      <div class="typerBlock"></div>
+      <h1>Home</h1>
+      <h1>Home</h1>
+      <h1>Home</h1>
+      <h1>Home</h1>
+      <h1>Home</h1>
+      <!--<content-box></content-box>-->
     </div>
   </div>
 </template>
@@ -11,13 +15,11 @@
 <script>
 import TextGlitch from 'vue-text-glitch'
 import bgGlitch from 'src/components/UI_components/bgGlitch'
-import contentBox from 'src/components/UI_components/contentBox'
 export default {
   name: 'home',
   components: {
     TextGlitch,
-    bgGlitch,
-    contentBox
+    bgGlitch
   },
   data () {
     return {
@@ -43,7 +45,6 @@ export default {
   .contentHome{
     width: 100%;
     height: 100%;
-    padding: 60px 40px;
   }
   .vue-typer {
     font-size: 2rem;
@@ -59,7 +60,9 @@ export default {
     text-shadow: 5px 4px 9px rgba(152, 150, 150, 0.6);
   }
   .leftContentHome{
-    position: relative;
+    position: static;
+    overflow: auto;
+    height: 100%;
     /*margin: 120px auto;*/
     /*padding: 120px 0 0 0;*/
   }
@@ -77,14 +80,6 @@ export default {
     }
     .typerBlock {
       margin: 0 auto;
-    }
-  }
-  @media screen and (max-width: 450px) {
-    .contentHome{
-      height: 100%;
-    }
-    .leftContentHome{
-      padding: 380px 0 0 0;
     }
   }
 </style>

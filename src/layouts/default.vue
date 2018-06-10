@@ -175,6 +175,9 @@ export default {
     color: #164a13;
     font-weight: 600;
   }
+  .q-layout-page-container{
+    height: 100vh;
+  }
   .logo{
     display: flex;
     flex-direction: column;
