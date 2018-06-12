@@ -1,14 +1,16 @@
 <template>
   <div class="contentHome">
-    <div class="leftContentHome">
-      <div class="typerBlock"></div>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <!--<content-box></content-box>-->
-    </div>
+    <vue-scroll :ops="ops">
+      <div class="leftContentHome">
+        <div class="typerBlock"></div>
+        <h1>Home</h1>
+        <h1>Home</h1>
+        <h1>Home</h1>
+        <h1>Home</h1>
+        <h1>Home</h1>
+        <!--<content-box></content-box>-->
+      </div>
+    </vue-scroll>
   </div>
 </template>
 
@@ -23,6 +25,20 @@ export default {
   },
   data () {
     return {
+      ops: {
+        vuescroll: {
+          mode: 'native'
+        },
+        scrollPanel: {
+
+        },
+        scrollContent: {
+
+        },
+        vRail: {
+
+        }
+      }
     }
   }
 }

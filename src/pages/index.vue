@@ -18,6 +18,11 @@
     padding: 48px 40px;
     height: 100%;
   }
+  @media screen and (max-width: 500px) {
+    .content{
+      padding: 12px;
+    }
+  }
 </style>
 
 <script>

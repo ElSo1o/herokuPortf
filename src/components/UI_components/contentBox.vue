@@ -1,23 +1,8 @@
 <template>
   <div class="sectionBox">
-    <!--<div class="linkNavigation" v-for="(item, key, index) in linksArr" :key="index">-->
-      <!--<div class="contentLink">-->
-        <!--<router-link :to="{path: '/index/' + item.link}">{{item.link}}</router-link>-->
-      <!--</div>-->
-    <!--</div>-->
-    <vue-scroll :ops="ops">
-      <!-- the content you want to scroll -->
-      <!--<div-->
-        <!--class="content"-->
-        <!--v-for= "item in 100"-->
-        <!--:key="item"-->
-      <!--&gt;-->
-        <!--<span>{{item}}</span>-->
-      <!--</div>-->
       <div class="contentBox">
         <router-view></router-view>
       </div>
-    </vue-scroll>
   </div>
 </template>
 
@@ -40,21 +25,7 @@ export default {
         {
           link: 'skills'
         }
-      ],
-      ops: {
-        vuescroll: {
-          mode: 'native'
-        },
-        scrollPanel: {
-
-        },
-        scrollContent: {
-
-        },
-        vRail: {
-
-        }
-      }
+      ]
     }
   }
 }
@@ -79,11 +50,23 @@ export default {
   .contentBox{
     width: 100%;
     height: 100%;
-    border-radius: 6px;
-    background: #e1e7f1;
-    border: 1px solid #a5a4a454;
+    border-radius: 4px;
+    background: rgba(255,255,255,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 41%, rgba(238,236,238,1) 77%, rgba(237,234,237,1) 83%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,255,255,1)), color-stop(41%, rgba(245,245,245,1)), color-stop(77%, rgba(238,236,238,1)), color-stop(83%, rgba(237,234,237,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 41%, rgba(238,236,238,1) 77%, rgba(237,234,237,1) 83%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 41%, rgba(238,236,238,1) 77%, rgba(237,234,237,1) 83%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 41%, rgba(238,236,238,1) 77%, rgba(237,234,237,1) 83%);
+    background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 41%, rgba(238,236,238,1) 77%, rgba(237,234,237,1) 83%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeaed', GradientType=1 );
+    border: 1px solid #a5a4a47a;
   }
   .vuescroll-vertical-bar{
     background: #778077!important;
+  }
+  @media screen and (max-width: 500px) {
+    .sectionBox{
+      padding: 0;
+    }
   }
 </style>
