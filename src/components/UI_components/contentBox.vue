@@ -59,6 +59,9 @@ export default {
     background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 41%, rgba(238,236,238,1) 77%, rgba(237,234,237,1) 83%);
     background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 41%, rgba(238,236,238,1) 77%, rgba(237,234,237,1) 83%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeaed', GradientType=1 );
+    -webkit-box-shadow: inset 0px 0px 24px -2px rgba(184,182,184,0.39);
+    -moz-box-shadow: inset 0px 0px 24px -2px rgba(184,182,184,0.39);
+    box-shadow: inset 0px 0px 24px -2px rgba(184,182,184,0.39);
     border: 1px solid #a5a4a47a;
   }
   .vuescroll-vertical-bar{

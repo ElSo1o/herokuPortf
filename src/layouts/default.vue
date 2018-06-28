@@ -50,28 +50,28 @@
           <div slot="subtitle"><span class="grClr">Building for portfolio</span></div>
         </q-toolbar-title>
         <q-btn flat round dense icon="menu" @click="showMenuNavigation = !showMenuNavigation" v-if="isNotMobVersion" aria-label="Toggle menu on right side" />
-        <q-fab v-else icon="keyboard_arrow_left" direction="left" color="#10750a">
-          <q-fab-action
-            color="cyan-7"
-            icon="adb"
-            @click="routerLink('skills')"
-          />
-          <q-fab-action
-            color="cyan-7"
-            icon="developer_mode"
-            @click="routerLink('portfolio')"
-          />
-          <q-fab-action
-            color="cyan-7"
-            icon="contact_mail"
-            @click="routerLink('contacts')"
-          />
-          <q-fab-action
-            color="cyan-7"
-            icon="alarm"
-            @click="routerLink('home')"
-          />
-        </q-fab>
+        <!--<q-fab v-else icon="keyboard_arrow_left" direction="left" color="#10750a">-->
+          <!--<q-fab-action-->
+            <!--color="cyan-7"-->
+            <!--icon="adb"-->
+            <!--@click="routerLink('skills')"-->
+          <!--/>-->
+          <!--<q-fab-action-->
+            <!--color="cyan-7"-->
+            <!--icon="developer_mode"-->
+            <!--@click="routerLink('portfolio')"-->
+          <!--/>-->
+          <!--<q-fab-action-->
+            <!--color="cyan-7"-->
+            <!--icon="contact_mail"-->
+            <!--@click="routerLink('contacts')"-->
+          <!--/>-->
+          <!--<q-fab-action-->
+            <!--color="cyan-7"-->
+            <!--icon="alarm"-->
+            <!--@click="routerLink('home')"-->
+          <!--/>-->
+        <!--</q-fab>-->
       </q-toolbar>
     </q-layout-header>
     <q-page-container>
@@ -158,7 +158,7 @@ export default {
   }
   .q-list-header{
     font-size: 24px;
-    color: #778077;
+    color: #636963;
     opacity: 0.8;
     padding: 0;
     text-shadow: none;
@@ -173,7 +173,7 @@ export default {
     /*color: #ffdead;*/
   /*}*/
   .q-item-sublabel{
-    color: #778077;
+    color: #636963;
     font-weight: 600;
     text-shadow: none;
   }
@@ -203,7 +203,7 @@ export default {
   .logo > div:last-child span{
     font-size: 20px;
     font-weight: 600;
-    color: #778077;
+    color: #636963;
     text-shadow: none;
   }
   .logo > div:last-child h5{
@@ -218,7 +218,7 @@ export default {
     font-size: 21px;
   }
   .grClr{
-    color: #778077;
+    color: #636963;
     font-weight: 600;
     text-shadow: none;
   }
