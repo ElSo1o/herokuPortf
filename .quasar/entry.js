@@ -51,6 +51,9 @@ plugins.push(pluginI18n)
 import pluginMain from 'src/plugins/main'
 plugins.push(pluginMain)
 
+import pluginApollo from 'src/plugins/apollo'
+plugins.push(pluginApollo)
+
 plugins.forEach(plugin => plugin({ app, router, store, Vue }))
 
 

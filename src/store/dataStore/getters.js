@@ -1,4 +1,3 @@
-/*
-export const someGetter = (state) => {
+export const warnLoginNotify = (state) => {
+  return state.warnLoginNotify
 }
-*/

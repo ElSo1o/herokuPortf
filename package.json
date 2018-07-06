@@ -15,16 +15,25 @@
   },
   "dependencies": {
     "animate.css": "^3.6.1",
+    "apollo-link": "^1.2.1",
+    "apollo-cache-inmemory": "^1.2.5",
+    "apollo-client": "^2.3.5",
+    "apollo-link-context": "^1.0.8",
+    "apollo-link-http": "^1.5.4",
     "autoprefixer": "^8.5.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "connect-history-api-fallback": "^1.5.0",
     "express": "^4.16.3",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
     "serve-static": "^1.13.2",
     "vue": "^2.5.16",
+    "vue-apollo": "^3.0.0-beta.19",
     "vue-i18n": "^7.3.3",
     "vue-text-glitch": "^1.0.1",
-    "vuescroll": "^4.6.4"
+    "vuescroll": "^4.6.4",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
