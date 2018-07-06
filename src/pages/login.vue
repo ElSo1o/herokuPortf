@@ -27,8 +27,12 @@ const singIn = gql`
         mutation auth($login: String!, $password: String!) {
           singIn(login: $login, password: $password) {
             token
+            user{
+            login
+            password
           }
         }
+      }
       `
 export default {
   name: 'login',
