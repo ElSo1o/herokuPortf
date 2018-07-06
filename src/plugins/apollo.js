@@ -8,11 +8,13 @@ export default ({ app, router, Vue }) => {
   // something to do
   const httpLink = new HttpLink({
     // You should use an absolute URL here
+    // 'https://elsolo-api.herokuapp.com/api'
+    // 'http://localhost:3000/api'
     uri: 'https://elsolo-api.herokuapp.com/api'
   })
   const authLink = setContext((_, { headers }) => {
     // get the authentication token from local storage if it exists
-    const token = 'token'
+    const token = 'asdsadsadasdsadasdsadasdsadsad'
     // return the headers to the context so httpLink can read them
     return {
       headers: {

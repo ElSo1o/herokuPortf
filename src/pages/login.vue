@@ -24,7 +24,7 @@
 <script>
 import gql from 'graphql-tag'
 const singIn = gql`
-        mutation auth($login: String, $password: String) {
+        mutation auth($login: String!, $password: String!) {
           singIn(login: $login, password: $password) {
             token
           }
