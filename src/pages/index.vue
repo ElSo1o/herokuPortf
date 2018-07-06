@@ -7,8 +7,7 @@
     <!--<router-view></router-view>-->
     <!--</transition>-->
   <div class="content">
-    <content-box>
-    </content-box>
+    <content-box></content-box>
     <bg-glitch></bg-glitch>
   </div>
 </template>

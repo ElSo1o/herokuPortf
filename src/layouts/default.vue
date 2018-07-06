@@ -76,24 +76,25 @@
     </q-layout-header>
     <q-page-container>
        <router-view />
+      <q-layout-footer v-model="footer" :reveal="footerReveal">
+        <demo-tabs v-if="$q.theme === 'ios'" />
+        <q-toolbar :inverted="$q.theme === 'ios'">
+          <q-toolbar-title>
+            <div class="footer">
+              <div class="linkFooter">
+                <div class="iconFooter"></div>
+                <div class="iconFooter"></div>
+                <div class="iconFooter"></div>
+              </div>
+              <div class="copyright">
+                <span>&copy; {{getYear}} by Elsolo</span>
+              </div>
+            </div>
+          </q-toolbar-title>
+        </q-toolbar>
+      </q-layout-footer>
     </q-page-container>
-    <q-layout-footer v-model="footer" :reveal="footerReveal">
-      <demo-tabs v-if="$q.theme === 'ios'" />
-      <q-toolbar :inverted="$q.theme === 'ios'">
-        <q-toolbar-title>
-          <div class="footer">
-            <div class="linkFooter">
-              <div class="iconFooter"></div>
-              <div class="iconFooter"></div>
-              <div class="iconFooter"></div>
-            </div>
-            <div class="copyright">
-              <span>&copy; {{getYear}} by Elsolo</span>
-            </div>
-          </div>
-        </q-toolbar-title>
-      </q-toolbar>
-    </q-layout-footer>
+
   </q-layout>
 </template>
 

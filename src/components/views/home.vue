@@ -15,7 +15,7 @@
                   <div><h6>About me</h6></div>
                   <div class="contentAbout" v-for="(item, i, key) in dataAbout" :key="key">
                     <div>
-                      <h7>{{item.title}} :</h7>
+                      <h6>{{item.title}} :</h6>
                     </div>
                     <blockquote >
                       <p>{{item.descript}}</p>
@@ -29,23 +29,23 @@
                     <table class="table table-striped table-bordered">
                       <tbody>
                         <tr>
-                          <td>DOB :</td>
+                          <td>DOB</td>
                           <td>17.10.1991</td>
                         </tr>
                         <tr>
-                          <td>Place :</td>
+                          <td>Place</td>
                           <td>Ukraine Doneckaya obl. city Bahmut | Artemovsk</td>
                         </tr>
                         <tr>
-                          <td>Marital status :</td>
+                          <td>Marital status</td>
                           <td>not married</td>
                         </tr>
                         <tr>
-                          <td>Experience :</td>
+                          <td>Experience</td>
                           <td>1.5 years</td>
                         </tr>
                         <tr>
-                          <td>Education :</td>
+                          <td>Education</td>
                           <td>Higher education in economics</td>
                         </tr>
                       </tbody>
@@ -56,15 +56,15 @@
                     <table class="table table-striped table-bordered">
                       <tbody>
                       <tr>
-                        <td>Tel :</td>
+                        <td>Tel</td>
                         <td>+38(099) 777-16-35</td>
                       </tr>
                       <tr>
-                        <td>Email :</td>
+                        <td>Email</td>
                         <td>vlad.legusha@gmail.com</td>
                       </tr>
                       <tr>
-                        <td>Skype :</td>
+                        <td>Skype</td>
                         <td>Vladvay1</td>
                       </tr>
                       </tbody>
@@ -97,13 +97,15 @@ export default {
           mode: 'native'
         },
         scrollPanel: {
-
+          scrollingX: false
         },
         scrollContent: {
 
         },
         vRail: {
-
+          pos: 'right',
+          opacity: 0.5,
+          background: '#01a99a'
         }
       },
       dataAbout: [
@@ -189,6 +191,7 @@ export default {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   .contentHome table tr > td {
     text-align: left;
@@ -204,6 +207,9 @@ export default {
     text-align: left;
     font-weight: 300;
     color: #636963;
+    margin-bottom: 10px;
+  }
+  .tableInfo{
     margin-bottom: 10px;
   }
   .hr{
@@ -239,6 +245,16 @@ export default {
     }
     .typerBlock {
       margin: 0 auto;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    .contentBlock > div{
+      max-width: 100%;
+    }
+  }
+  @media screen and (max-width: 670px) {
+    .contentBlock {
+      padding: 0;
     }
   }
 </style>
