@@ -150,7 +150,7 @@ export default {
     font-weight: 600;
   }
   .section > div:first-child{
-    max-width: 370px;
+    width: 370px;
     background: #cbeaea14;
     padding: 15px 18px;
     margin: 0 auto;
