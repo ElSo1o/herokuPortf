@@ -1,5 +1,10 @@
 export default {
   warnLoginNotify: {
-    show: false
+    show: false,
+    message: ''
+  },
+  successNotify: {
+    show: false,
+    message: ''
   }
 }

@@ -28,8 +28,9 @@ const singIn = gql`
           singIn(login: $login, password: $password) {
             token
             user{
-            login
-            password
+              _id
+              login
+              type
           }
         }
       }
@@ -72,7 +73,7 @@ export default {
       // }
     },
     submitLogin () {
-      this.$store.commit('dataStore/toggleWargLoginNotifity', true)
+      this.loading = true
       const _this = this
       this.$apollo.mutate({
         mutation: singIn,
@@ -82,16 +83,29 @@ export default {
         }
       }).then((response) => {
         console.log(response)
-        // if (response.data.Login.token === null || response.data.Login.token === 'undefined') {
-        //   this.boolLogin = true
-        //   return false
-        // } else {
-        //   this.$ls.set('token', response.data.Login.token)
-        //   this.boolLogin = false
-        //   this.$router.push({path: '/admin'})
-        // }
+        if (response.data.singIn.token) {
+          this.$localStorage.set('token', response.data.singIn.token)
+          this.$store.commit('dataStore/toggleSuccessNotifyLogin', {show: true, message: `You are logging ia a ${response.data.singIn.user.login}, your type is a ${response.data.singIn.user.type}`})
+          this.loading = false
+          this.$router.push({ path: '/index' })
+          // const parseJwt = (token) => {
+          //   let base64Url = token.split('.')[1]
+          //   let base64 = base64Url.replace('-', '+').replace('_', '/')
+          //   return JSON.parse(window.atob(base64))
+          // }
+          // console.log(parseJwt(response.data.singIn.token))
+          // console.log(this.$localStorage)
+        }
       }).catch((error) => {
         console.error(error)
+        console.log(error.message)
+        let lastIndex = error.message.lastIndexOf(':')
+        const message = error.message.substring(0, lastIndex)
+        console.log(error.message)
+        if (error.message === `${message}: No user with that login`) {
+          this.$store.commit('dataStore/toggleWargLoginNotifity', {show: true, message: `Can't login. Please check your credentials`})
+        }
+        this.loading = false
       })
     }
   },

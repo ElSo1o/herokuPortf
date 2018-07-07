@@ -2,7 +2,7 @@
 export default [
   {
     path: '/',
-    component: () => import('layouts/main'),
+    component: () => import('layouts/main_section'),
     redirect: 'index',
     children: [
       {
