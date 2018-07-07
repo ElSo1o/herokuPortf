@@ -157,6 +157,11 @@ export default {
     border: 1px solid #d9dad9;
     border-radius: 4px;
   }
+  @media screen and (max-width: 450px) {
+    .section > div:first-child {
+      width: 100%
+    }
+  }
   /*i{*/
     /*color: #979797!important;*/
   /*}*/
