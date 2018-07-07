@@ -49,6 +49,7 @@
           <span>Elsolo's App</span>
           <div slot="subtitle"><span class="grClr">Building for portfolio</span></div>
         </q-toolbar-title>
+        <span  class="routerLink" @click="deleteToken">Sing Out</span>
         <q-btn flat round dense icon="menu" @click="showMenuNavigation = !showMenuNavigation" v-if="isNotMobVersion" aria-label="Toggle menu on right side" />
         <!--<q-fab v-else icon="keyboard_arrow_left" direction="left" color="#10750a">-->
           <!--<q-fab-action-->
@@ -100,9 +101,11 @@
 
 <script>
 import { openURL } from 'quasar'
+import RouterLinks from '../components/UI_components/contentBox'
 export default {
   name: 'LayoutDefault',
   components: {
+    RouterLinks
   },
   data () {
     return {
@@ -129,6 +132,11 @@ export default {
         this.isNotMobVersion = false
       }
       return this.mobile
+    },
+    deleteToken () {
+      console.log('test')
+      sessionStorage.removeItem('token')
+      setTimeout(() => { this.$router.push({name: 'login'}) }, 0)
     }
   },
   computed: {
@@ -247,6 +255,9 @@ export default {
   }
   .iconFooter:hover{
     animation:spin 2s linear infinite;
+  }
+  .routerLink{
+    cursor: pointer;
   }
   @keyframes spin { 100% { transform:rotateY(360deg); } }
   .linkFooter{

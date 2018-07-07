@@ -17,16 +17,9 @@ export default {
         this.$q.notify({
           // only required parameter is the message:
           message: `${this.$store.getters['dataStore/warnLoginNotify'].message}`,
-          /*
-           * All parameters below are optional:
-           */
-          timeout: 103000, // in milliseconds; 0 means no timeout
-
-          // "type" adds a color and icon,
-          // so you don't need to specify them.
+          timeout: 10000, // in milliseconds; 0 means no timeout
           // Available values: 'positive', 'negative', 'warning', 'info'
           type: 'negative',
-
           color: 'positive',
           textColor: 'black', // if default 'white' doesn't fits
 
@@ -61,7 +54,7 @@ export default {
           /*
            * All parameters below are optional:
            */
-          timeout: 103000, // in milliseconds; 0 means no timeout
+          timeout: 99999999, // in milliseconds; 0 means no timeout
 
           // "type" adds a color and icon,
           // so you don't need to specify them.

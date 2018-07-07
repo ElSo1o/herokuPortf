@@ -35,7 +35,7 @@ export default ({ app, router, Vue }) => {
       try {
         const token = parseJwt(sessionStorage.getItem('token'))
         if (token) {
-          next({name: 'index'})
+          next({name: 'home'})
         }
       } catch (err) {
         if (err) {

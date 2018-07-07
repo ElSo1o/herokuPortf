@@ -7,10 +7,10 @@
         </div>
         <div class="inputLog">
           <div class="form-group">
-            <q-input :loading="loading" v-model="formVal.login" type="text" id="login" float-label="Login" no-pass-toggle clearable style="text-align: left" @input="validateLogin"/>
+            <q-input :loading="loading" v-model="formVal.login" type="text" id="login" float-label="Login" no-pass-toggle clearable style="text-align: left; font-size: 18px;" @input="validateLogin"/>
           </div>
           <div class="form-group">
-            <q-input  :loading="loading" v-model="formVal.password" type="password" id="password" float-label="Password" clearable style="text-align: left" @input="validateLogin"/>
+            <q-input  :loading="loading" v-model="formVal.password" type="password" id="password" float-label="Password" clearable style="text-align: left; font-size: 18px;" @input="validateLogin"/>
           </div>
         </div>
         <div class="btnLink">
@@ -138,7 +138,7 @@ export default {
   }
   .inputLog{
     margin: 0 auto;
-    width: 258px;
+    width: auto;
   }
   .section > div{
   }
@@ -148,6 +148,14 @@ export default {
   }
   h3{
     font-weight: 600;
+  }
+  .section > div:first-child{
+    width: 370px;
+    background: #cbeaea14;
+    padding: 15px 18px;
+    margin: 0 auto;
+    border: 1px solid #d9dad9;
+    border-radius: 4px;
   }
   /*i{*/
     /*color: #979797!important;*/
