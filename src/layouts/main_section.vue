@@ -33,7 +33,7 @@ export default {
           icon: 'clear',
           // or
 
-          detail: 'Optional detail message.',
+          detail: 'Error!',
           position: 'top-right', // 'top', 'left', 'bottom-left' etc
 
           actions: [
@@ -71,10 +71,10 @@ export default {
           color: 'positive',
           textColor: 'black', // if default 'white' doesn't fits
 
-          icon: 'clear',
+          icon: 'done',
           // or
 
-          detail: 'Optional detail message.',
+          detail: 'Success!',
           position: 'top-right', // 'top', 'left', 'bottom-left' etc
 
           actions: [

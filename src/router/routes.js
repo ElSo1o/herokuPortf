@@ -13,22 +13,27 @@ export default [
           {
             path: 'index',
             component: () => import('pages/index'),
+            name: 'index',
             redirect: 'index/home',
             children: [
               {
                 path: 'home',
+                name: 'home',
                 component: () => import('components/views/home')
               },
               {
                 path: 'skills',
+                name: 'skills',
                 component: () => import('components/views/skills')
               },
               {
                 path: 'portfolio',
+                name: 'portfolio',
                 component: () => import('components/views/portfolio')
               },
               {
                 path: 'contacts',
+                name: 'contacts',
                 component: () => import('components/views/contacts')
               }
             ]
@@ -37,6 +42,7 @@ export default [
       },
       {
         path: '/login',
+        name: 'login',
         component: () => import('pages/login')
       }
     ]

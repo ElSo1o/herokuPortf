@@ -5,6 +5,7 @@ import { setContext } from 'apollo-link-context'
 import VueApollo from 'vue-apollo'
 import VueLocalStorage from 'vue-localstorage'
 // leave the export, even if you don't use it
+// console.log(sessionStorage.getItem('token'))
 
 export default ({ app, router, Vue }) => {
   Vue.use(VueLocalStorage)
@@ -18,8 +19,8 @@ export default ({ app, router, Vue }) => {
     uri: 'https://elsolo-api.herokuapp.com/api'
   })
   const authLink = setContext((_, { headers }) => {
-    // get the authentication token from local storage if it exists
-    const token = Vue.localStorage.get('token')
+    // get the authentication token from session storage if it exists
+    const token = sessionStorage.getItem('token')
     // return the headers to the context so httpLink can read them
     return {
       headers: {
@@ -50,5 +51,4 @@ export default ({ app, router, Vue }) => {
   Vue.use(VueApollo)
   Vue.use(apolloClient)
   app.provide = apolloProvider.provide()
-  console.log(app)
 }
