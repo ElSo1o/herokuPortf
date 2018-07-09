@@ -8,6 +8,7 @@ const parseJwt = (token) => {
 }
 // vue.use(vuescroll)
 export default ({ app, router, Vue }) => {
+  // console.log(parseJwt())
   // something to do
   Vue.use(vuescroll)
   router.beforeEach((to, from, next) => {
@@ -18,7 +19,8 @@ export default ({ app, router, Vue }) => {
       } else {
         try {
           const token = parseJwt(sessionStorage.getItem('token'))
-          if (token) {
+          if (token.id) {
+            console.log(token)
             next()
           } else {
             next({name: 'login'})

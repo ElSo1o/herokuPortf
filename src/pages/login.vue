@@ -30,7 +30,11 @@ const singIn = gql`
             user{
               _id
               login
-              type
+              info{
+                type
+                name
+              }
+              email
           }
         }
       }
@@ -85,25 +89,20 @@ export default {
         console.log(response)
         if (response.data.singIn.token) {
           sessionStorage.setItem('token', response.data.singIn.token)
-          this.$store.commit('dataStore/toggleSuccessNotifyLogin', {show: true, message: `You are logging ia a ${response.data.singIn.user.login}, your type permission ${response.data.singIn.user.type}`})
+          this.$store.commit('dataStore/toggleSuccessNotifyLogin', {show: true, message: `You are logging ia a ${response.data.singIn.user.login}, your type permission ${response.data.singIn.user.info.type}`})
           this.loading = false
           this.$router.push({ path: '/index' })
-          // const parseJwt = (token) => {
-          //   let base64Url = token.split('.')[1]
-          //   let base64 = base64Url.replace('-', '+').replace('_', '/')
-          //   return JSON.parse(window.atob(base64))
-          // }
-          // console.log(parseJwt(response.data.singIn.token))
-          // console.log(this.$localStorage)
         }
       }).catch((error) => {
-        console.error(error)
-        console.log(error.message)
-        let lastIndex = error.message.lastIndexOf(':')
-        const message = error.message.substring(0, lastIndex)
-        console.log(error.message)
-        if (error.message === `${message}: No user with that login`) {
+        // console.error(error)
+        // let lastIndex = error.message.lastIndexOf(':')
+        // const message = error.message.substring(0, lastIndex)
+        // console.log(error.message)
+        if (error.networkError.statusCode === 401) {
           this.$store.commit('dataStore/toggleWargLoginNotifity', {show: true, message: `Can't login. Please check your credentials`})
+        }
+        if (error.networkError.statusCode === 500) {
+          this.$store.commit('dataStore/toggleWargLoginNotifity', {show: true, message: `Bad request!`})
         }
         this.loading = false
       })

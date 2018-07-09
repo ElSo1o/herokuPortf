@@ -13,6 +13,8 @@ export default {
   },
   computed: {
     getNotLogin () {
+      // const dismiss = this.$q.notify({})
+      // dismiss()
       if (this.$store.getters['dataStore/warnLoginNotify'].show) {
         this.$q.notify({
           // only required parameter is the message:
@@ -27,8 +29,9 @@ export default {
           // or
 
           detail: 'Error!',
-          position: 'top-right', // 'top', 'left', 'bottom-left' etc
-
+          position: 'top', // 'top', 'left', 'bottom-left' etc,
+          enter: 'bounceInDown',
+          leave: 'bounceOutUp',
           actions: [
             {
               label: 'Close',
@@ -68,7 +71,7 @@ export default {
           // or
 
           detail: 'Success!',
-          position: 'top-right', // 'top', 'left', 'bottom-left' etc
+          position: 'top', // 'top', 'left', 'bottom-left' etc
 
           actions: [
             {
