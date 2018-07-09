@@ -15,6 +15,7 @@ export default {
     getNotLogin () {
       // const dismiss = this.$q.notify({})
       // dismiss()
+      console.log(this.$q)
       if (this.$store.getters['dataStore/warnLoginNotify'].show) {
         this.$q.notify({
           // only required parameter is the message:

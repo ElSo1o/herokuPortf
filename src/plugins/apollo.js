@@ -3,12 +3,10 @@ import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { setContext } from 'apollo-link-context'
 import VueApollo from 'vue-apollo'
-import VueLocalStorage from 'vue-localstorage'
 // leave the export, even if you don't use it
 // console.log(sessionStorage.getItem('token'))
 
 export default ({ app, router, Vue }) => {
-  Vue.use(VueLocalStorage)
   // Vue.localStorage.set('someNumber', 123)
   // console.log(Vue.localStorage.get('someNumber'))
   // something to do

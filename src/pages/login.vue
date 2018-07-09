@@ -2,9 +2,9 @@
   <div class="mainSect" @keyup.enter="submitLogin">
     <div class="section">
       <div>
-        <div>
-          <h3>Log In</h3>
-        </div>
+        <!--<div>-->
+          <!--<h3>Log In</h3>-->
+        <!--</div>-->
         <div class="inputLog">
           <div class="form-group">
             <q-input :loading="loading" v-model="formVal.login" type="text" id="login" float-label="Login" no-pass-toggle clearable style="text-align: left; font-size: 18px;" @input="validateLogin"/>
@@ -143,7 +143,7 @@ export default {
   }
   .btnLink{
     position: relative;
-    padding-top: 20px;
+    padding-top: 25px;
   }
   h3{
     font-weight: 600;

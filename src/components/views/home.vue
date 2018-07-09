@@ -256,5 +256,8 @@ export default {
     .contentBlock {
       padding: 0;
     }
+    .__vuescroll .__view{
+      width: 100%!important;
+    }
   }
 </style>

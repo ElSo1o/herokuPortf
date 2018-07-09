@@ -35,6 +35,11 @@ export default {
   .vuescroll-content{
     height: auto;
   }
+  /*@media screen and (max-width: 670px) {*/
+    /*.__vuescroll .__view{*/
+      /*width: 100%!important;*/
+    /*}*/
+  /*}*/
   .sectionBox{
     text-align: center;
     height: 100%;
