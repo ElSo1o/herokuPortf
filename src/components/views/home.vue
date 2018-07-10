@@ -142,7 +142,7 @@ export default {
       dataAbout: [
         {
           title: 'My experience',
-          descript: 'I worked remotely for one and half year in the Belgian campaign CallSof and held a position as a front-end developer,all technical documentation was in English, so I chose English for my resume,during my work I learned the leading technologies in web development,such as WebPack, Vue.js, Apollo, GraphQL, Node.js, Express.js, Cordova.js, Quasar Framework, and I also have experience in developing the back-end part but only on Node.js and Express.js,I think that from the front-end side I take the middle position and with the back-end junior position.'
+          descript: 'I worked remotely for one and half year in the Belgian campaign CallSof and held a position as a front-end developer,all technical documentation was in English, so I chose English for my resume,during my work I learned the leading technologies in web development,such as ES6, WebPack, Vue.js, Apollo, GraphQL, Node.js, Express.js, Cordova.js, Quasar Framework,experience in developing mobile applications,as well as an asynchronous programming model (async/await) and I also have experience in developing the back-end part but only on Node.js and Express.js,I think that from the front-end side I take the middle position and with the back-end junior position.'
         },
         {
           title: 'Personal qualities',
@@ -150,7 +150,7 @@ export default {
         },
         {
           title: 'Expectation from work',
-          descript: 'The possibility of professional growth,friendly team,acceptable working conditions.'
+          descript: 'I would like to work with Vue, Node and the GraphQL API, but I\'m also ready to consider the job of Front-end developer,and the possibility of professional growth,friendly team,acceptable working conditions.'
         }
       ],
       dataAboutSite: [

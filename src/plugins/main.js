@@ -14,11 +14,11 @@ export default ({ app, router, Vue }) => {
   router.beforeEach((to, from, next) => {
     // console.log(to)
     if (to.name === 'index' || to.name === 'home' || to.name === 'skills' || to.name === 'contacts' || to.name === 'portfolio') {
-      if (sessionStorage.getItem('token') === null) {
+      if (localStorage.getItem('token') === null) {
         next({name: 'login'})
       } else {
         try {
-          const token = parseJwt(sessionStorage.getItem('token'))
+          const token = parseJwt(localStorage.getItem('token'))
           if (token.id) {
             // console.log(token)
             next()
@@ -35,7 +35,7 @@ export default ({ app, router, Vue }) => {
       }
     } else if (to.name === 'login') {
       try {
-        const token = parseJwt(sessionStorage.getItem('token'))
+        const token = parseJwt(localStorage.getItem('token'))
         if (token) {
           next({name: 'home'})
         }

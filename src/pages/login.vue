@@ -1,5 +1,6 @@
 <template>
   <div class="mainSect" @keyup.enter="submitLogin">
+    <q-ajax-bar ref="ajaxBar" :position="position" :reverse="reverse" :size="computedSize"/>
     <div class="section">
       <div class="shadow-2">
         <!--<div>-->
@@ -50,10 +51,16 @@ export default {
       boolLogin: false,
       disable: true,
       token: null,
-      loading: false
+      loading: false,
+      position: 'bottom',
+      reverse: false,
+      size: 4
     }
   },
   computed: {
+    computedSize () {
+      return this.size + 'px'
+    }
   },
   methods: {
     validateLogin (e) {
@@ -77,6 +84,8 @@ export default {
       // }
     },
     submitLogin () {
+      this.$refs.ajaxBar.start()
+      console.log(this.$refs.ajaxBar)
       this.loading = true
       const _this = this
       this.$apollo.mutate({
@@ -88,8 +97,9 @@ export default {
       }).then((response) => {
         console.log(response)
         if (response.data.singIn.token) {
-          sessionStorage.setItem('token', response.data.singIn.token)
+          localStorage.setItem('token', response.data.singIn.token)
           this.$store.commit('dataStore/toggleSuccessNotifyLogin', {show: true, message: `You are logging ia a ${response.data.singIn.user.login}, your type permission ${response.data.singIn.user.info.type}, your email is a ${response.data.singIn.user.email}`})
+          this.$refs.ajaxBar.stop()
           this.loading = false
           this.$router.push({ path: '/index' })
         }
@@ -98,6 +108,7 @@ export default {
         // let lastIndex = error.message.lastIndexOf(':')
         // const message = error.message.substring(0, lastIndex)
         // console.log(error.message)
+        this.$refs.ajaxBar.stop()
         if (error.networkError.statusCode === 401) {
           this.$store.commit('dataStore/toggleWargLoginNotifity', {show: true, message: `Can't login. Please check your credentials`})
         }

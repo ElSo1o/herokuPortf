@@ -15,12 +15,11 @@ export default {
     getNotLogin () {
       // const dismiss = this.$q.notify({})
       // dismiss()
-      console.log(this.$q)
       if (this.$store.getters['dataStore/warnLoginNotify'].show) {
         this.$q.notify({
           // only required parameter is the message:
           message: `${this.$store.getters['dataStore/warnLoginNotify'].message}`,
-          timeout: 10000, // in milliseconds; 0 means no timeout
+          timeout: 3000, // in milliseconds; 0 means no timeout
           // Available values: 'positive', 'negative', 'warning', 'info'
           type: 'negative',
           color: 'positive',

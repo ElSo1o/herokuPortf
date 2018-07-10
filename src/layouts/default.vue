@@ -12,7 +12,7 @@
             <div></div>
             <div>
               <h5>Vlad Legusha</h5>
-              <span>Front-end developer</span>
+              <span>Full-stack developer</span>
             </div>
           </div>
         </q-list-header>
@@ -135,7 +135,7 @@ export default {
     },
     deleteToken () {
       console.log('test')
-      sessionStorage.removeItem('token')
+      localStorage.removeItem('token')
       setTimeout(() => { this.$router.push({name: 'login'}) }, 0)
     }
   },
