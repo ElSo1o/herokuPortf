@@ -20,7 +20,7 @@ export default ({ app, router, Vue }) => {
         try {
           const token = parseJwt(sessionStorage.getItem('token'))
           if (token.id) {
-            console.log(token)
+            // console.log(token)
             next()
           } else {
             next({name: 'login'})

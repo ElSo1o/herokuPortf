@@ -6,12 +6,8 @@
 </template>
 
 <script>
-import contentBox from 'src/components/UI_components/contentBox'
 export default {
-  name: 'skills',
-  components: {
-    contentBox
-  }
+  name: 'skills'
 }
 </script>
 

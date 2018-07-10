@@ -1,7 +1,7 @@
 <template>
   <div class="mainSect" @keyup.enter="submitLogin">
     <div class="section">
-      <div>
+      <div class="shadow-2">
         <!--<div>-->
           <!--<h3>Log In</h3>-->
         <!--</div>-->
@@ -89,7 +89,7 @@ export default {
         console.log(response)
         if (response.data.singIn.token) {
           sessionStorage.setItem('token', response.data.singIn.token)
-          this.$store.commit('dataStore/toggleSuccessNotifyLogin', {show: true, message: `You are logging ia a ${response.data.singIn.user.login}, your type permission ${response.data.singIn.user.info.type}`})
+          this.$store.commit('dataStore/toggleSuccessNotifyLogin', {show: true, message: `You are logging ia a ${response.data.singIn.user.login}, your type permission ${response.data.singIn.user.info.type}, your email is a ${response.data.singIn.user.email}`})
           this.loading = false
           this.$router.push({ path: '/index' })
         }
@@ -104,6 +104,9 @@ export default {
         if (error.networkError.statusCode === 500) {
           this.$store.commit('dataStore/toggleWargLoginNotifity', {show: true, message: `Bad request!`})
         }
+        this.disable = true
+        this.formVal.login = ''
+        this.formVal.password = ''
         this.loading = false
       })
     }
@@ -150,7 +153,7 @@ export default {
   }
   .section > div:first-child{
     width: 370px;
-    background: #cbeaea14;
+    background: #f4fdfd7a;
     padding: 15px 18px;
     margin: 0 auto;
     border: 1px solid #d9dad9;

@@ -26,7 +26,7 @@
 
 <script>
 import bgGlitch from 'src/components/UI_components/bgGlitch'
-import contentBox from 'src/components/UI_components/contentBox'
+import contentBox from 'src/components/contentBox'
 export default {
   name: 'PageIndex',
   components: {

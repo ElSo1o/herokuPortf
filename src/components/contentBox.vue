@@ -1,5 +1,5 @@
 <template>
-  <div class="sectionBox">
+  <div class="sectionBox shadow-6">
       <div class="contentBox">
         <router-view></router-view>
       </div>
@@ -32,18 +32,23 @@ export default {
 </script>
 
 <style>
+  /***Global***/
   .vuescroll-content{
     height: auto;
   }
-  /*@media screen and (max-width: 670px) {*/
-    /*.__vuescroll .__view{*/
-      /*width: 100%!important;*/
-    /*}*/
-  /*}*/
+  a, .links{
+    text-decoration: none;
+    color: #4faec1;
+    text-shadow: none;
+    transition: 0.5s;
+  }
+  a:hover, .links:hover{
+    color: #042d42;
+  }
   .sectionBox{
     text-align: center;
     height: 100%;
-    box-shadow: 0 4px 4px -1px rgba(0,0,0,0.2), 0 -4px 4px -1px rgba(0,0,0,0.2), 4px 8px 10px rgba(0,0,0,0.12), 2px -4px 10px rgba(0,0,0,0.12);
+    /*box-shadow: 0 4px 4px -1px rgba(0,0,0,0.2), 0 -4px 4px -1px rgba(0,0,0,0.2), 4px 8px 10px rgba(0,0,0,0.12), 2px -4px 10px rgba(0,0,0,0.12);*/
     padding: 24px;
     border-radius: 4px;
     transition: 0.5s;

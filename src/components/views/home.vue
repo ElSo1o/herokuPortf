@@ -11,6 +11,33 @@
               </div>
               <div class="hr"></div>
               <div style="margin-top: 15px">
+                <div class="aboutSite">
+                  <div>
+                    <h6>About site</h6>
+                  </div>
+                  <div class="contentAbout">
+                    <div>
+                      <h6>Why did I create this site?</h6>
+                    </div>
+                    <div>
+                      <blockquote >
+                        <p>I thought it would be a good idea to collect all of my portfolio and summery in one place and show you some of my skills</p>
+                        <!--<small>Someone famous for <cite title="Quasar Framework">Quasar Framework</cite></small>-->
+                      </blockquote>
+                    </div>
+                  </div>
+                  <div class="contentAbout">
+                    <div>
+                      <h6>What technologies are used on this site?</h6>
+                    </div>
+                    <div>
+                      <blockquote >
+                        <p>I'm using technologies such as Webpack,Vue,Quasar Framework,Apollo-Client,GraphQl-Client,and I created the Backend API for the authentication I'm using Node.js,Express,GraphQL-Server,Apollo-Server,MongoDB and JWT</p>
+                        <!--<small>Someone famous for <cite title="Quasar Framework">Quasar Framework</cite></small>-->
+                      </blockquote>
+                    </div>
+                  </div>
+                </div>
                 <div class="about">
                   <div><h6>About me</h6></div>
                   <div class="contentAbout" v-for="(item, i, key) in dataAbout" :key="key">
@@ -19,7 +46,7 @@
                     </div>
                     <blockquote >
                       <p>{{item.descript}}</p>
-                      <!--<small>Someone famous for <cite title="Quasar Framework">Quasar Framework</cite></small>-->
+                      <p v-if="i === 0">You can see the details on the page <router-link :to="{ name: 'skills' }">skills</router-link></p>
                     </blockquote>
                   </div>
                 </div>
@@ -41,12 +68,16 @@
                           <td>not married</td>
                         </tr>
                         <tr>
-                          <td>Experience</td>
-                          <td>1.5 years</td>
+                          <td>General experience</td>
+                          <td>2 years</td>
                         </tr>
                         <tr>
                           <td>Education</td>
                           <td>Higher education in economics</td>
+                        </tr>
+                        <tr>
+                          <td>Knowledge of English</td>
+                          <td>At the level of reading and understanding technical documentation</td>
                         </tr>
                       </tbody>
                     </table>
@@ -57,15 +88,15 @@
                       <tbody>
                       <tr>
                         <td>Tel</td>
-                        <td>+38(099) 777-16-35</td>
+                        <td><a href="tel:+38(099) 777-16-35">+38(099) 777-16-35</a></td>
                       </tr>
                       <tr>
                         <td>Email</td>
-                        <td>vlad.legusha@gmail.com</td>
+                        <td><a href="mailto:vlad.legusha@gmail.com">vlad.legusha@gmail.com</a></td>
                       </tr>
                       <tr>
                         <td>Skype</td>
-                        <td>Vladvay1</td>
+                        <td><a href="skype:Vladvay1?userinfo">Vladvay1</a></td>
                       </tr>
                       </tbody>
                     </table>
@@ -110,16 +141,21 @@ export default {
       },
       dataAbout: [
         {
-          title: 'Personal qualities',
-          descript: 'There is a desire to develop professionally, to strive for career growth,I want to learn new technologies, and be able to apply them in practice,I have such qualities: punctuality,analytic skills,attentiveness,high efficiency,fast learner.'
+          title: 'My experience',
+          descript: 'I worked remotely for one and half year in the Belgian campaign CallSof and held a position as a front-end developer,all technical documentation was in English, so I chose English for my resume,during my work I learned the leading technologies in web development,such as WebPack, Vue.js, Apollo, GraphQL, Node.js, Express.js, Cordova.js, Quasar Framework, and I also have experience in developing the back-end part but only on Node.js and Express.js,I think that from the front-end side I take the middle position and with the back-end junior position.'
         },
         {
-          title: 'My experience',
-          descript: 'I worked remotely for a year and a half in the Belgian campaign CallSof and held a position as a front-end developer,all technical documentation was in English, so I chose English for my resume,when I just got a job I wrote the code on HTML,CSS and JQuery,but during my work I had to learn the leading technologies in web development,such as WebPack,Vue.js,Apollo,GraphQL,Node.js,Cordova,Quasar Framework,and I also have experience in developing the back-end part but only on Node.js,I think that from the front-end side I take the middle position and with the back-end junior position'
+          title: 'Personal qualities',
+          descript: 'There is a desire to develop professionally, to strive for career growth,I want to learn new technologies, and be able to apply them in practice,I have such qualities: ability to use the search engine Google, punctuality, analytic skills, attentiveness, high efficiency, fast learner.'
         },
         {
           title: 'Expectation from work',
           descript: 'The possibility of professional growth,friendly team,acceptable working conditions.'
+        }
+      ],
+      dataAboutSite: [
+        {
+          title: 'Title'
         }
       ]
     }
@@ -215,7 +251,7 @@ export default {
   .hr{
     border: 1px solid #d4d4d4;
   }
-  .about > div:first-child > h6 {
+  .about > div:first-child > h6, .aboutSite > div:first-child > h6 {
     font-weight: 300;
     color: #636963;
     margin-bottom: 10px;
@@ -224,12 +260,16 @@ export default {
     text-align: left;
     padding-bottom: 10px;
   }
-  .contentAbout >div:first-child  > h7{
+  .contentAbout > div:first-child  > h6{
     font-weight: 400;
     color: #636963;
+    font-size: 16px;
   }
   .contentAbout >div:first-child{
     margin-bottom: 10px;
+  }
+  blockquote > p{
+    font-size: 20px;
   }
   /**Media**/
   @media screen and (max-width: 1500px) {
