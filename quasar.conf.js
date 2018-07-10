@@ -58,8 +58,7 @@ module.exports = function (ctx) {
         'QItem',
         'QInput',
         'QItemMain',
-        'QItemSide',
-        'QAjaxBar'
+        'QItemSide'
       ],
       directives: [
         'Ripple'

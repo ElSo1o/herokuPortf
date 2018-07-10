@@ -1,6 +1,7 @@
 import('animate.css/animate.css')
 import vuescroll from 'vuescroll'
 import 'vuescroll/dist/vuescroll.css'
+import VueProgressBar from 'vue-progressbar'
 const parseJwt = (token) => {
   let base64Url = token.split('.')[1]
   let base64 = base64Url.replace('-', '+').replace('_', '/')
@@ -10,6 +11,12 @@ const parseJwt = (token) => {
 export default ({ app, router, Vue }) => {
   // console.log(parseJwt())
   // something to do
+  Vue.use(VueProgressBar, {
+    color: '#21ba45',
+    failedColor: 'red',
+    thickness: '4px',
+    location: 'bottom'
+  })
   Vue.use(vuescroll)
   router.beforeEach((to, from, next) => {
     // console.log(to)

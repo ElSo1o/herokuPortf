@@ -1,6 +1,6 @@
 <template>
   <div class="mainSect" @keyup.enter="submitLogin">
-    <q-ajax-bar ref="ajaxBar" :position="position" :reverse="reverse" :size="computedSize"/>
+    <vue-progress-bar></vue-progress-bar>
     <div class="section">
       <div class="shadow-2">
         <!--<div>-->
@@ -11,7 +11,7 @@
             <q-input :loading="loading" v-model="formVal.login" type="text" id="login" float-label="Login" no-pass-toggle clearable style="text-align: left; font-size: 18px;" @input="validateLogin"/>
           </div>
           <div class="form-group">
-            <q-input  :loading="loading" v-model="formVal.password" type="password" id="password" float-label="Password" clearable style="text-align: left; font-size: 18px;" @input="validateLogin"/>
+            <q-input  :loading="loading" v-model="formVal.password" type="password" id="password" float-label="Password" clearable style="text-align: left; font-size: 18px; color: #042d42" @input="validateLogin"/>
           </div>
         </div>
         <div class="btnLink">
@@ -84,8 +84,7 @@ export default {
       // }
     },
     submitLogin () {
-      this.$refs.ajaxBar.start()
-      console.log(this.$refs.ajaxBar)
+      this.$Progress.start()
       this.loading = true
       const _this = this
       this.$apollo.mutate({
@@ -99,7 +98,7 @@ export default {
         if (response.data.singIn.token) {
           localStorage.setItem('token', response.data.singIn.token)
           this.$store.commit('dataStore/toggleSuccessNotifyLogin', {show: true, message: `You are logging ia a ${response.data.singIn.user.login}, your type permission ${response.data.singIn.user.info.type}, your email is a ${response.data.singIn.user.email}`})
-          this.$refs.ajaxBar.stop()
+          this.$Progress.finish()
           this.loading = false
           this.$router.push({ path: '/index' })
         }
@@ -108,7 +107,7 @@ export default {
         // let lastIndex = error.message.lastIndexOf(':')
         // const message = error.message.substring(0, lastIndex)
         // console.log(error.message)
-        this.$refs.ajaxBar.stop()
+        this.$Progress.fail()
         if (error.networkError.statusCode === 401) {
           this.$store.commit('dataStore/toggleWargLoginNotifity', {show: true, message: `Can't login. Please check your credentials`})
         }
