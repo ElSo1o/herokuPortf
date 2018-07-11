@@ -4,7 +4,7 @@
       <div class="leftContentHome">
         <div class="typerBlock"></div>
         <div class="contentBlock">
-          <div class="sectionBlock">
+          <div class="sectionBlock shadow-4">
             <div>
               <div class="headerVisit">
                 <h5>Vladislav Vitalievich Legusha</h5>
@@ -21,7 +21,7 @@
                     </div>
                     <div>
                       <blockquote >
-                        <p>I thought it would be a good idea to collect all of my portfolio and summery in one place and show you some of my skills</p>
+                        <p>I thought it would be a good idea to collect all of my portfolio and summery in one place and show you some of my skills, I did not try to surprise you with the beauty of this site, it is intended solely for information</p>
                         <!--<small>Someone famous for <cite title="Quasar Framework">Quasar Framework</cite></small>-->
                       </blockquote>
                     </div>
@@ -201,22 +201,19 @@ export default {
     /*margin: 120px auto;*/
     /*padding: 120px 0 0 0;*/
   }
-  .contentBlock{
-    padding: 20px 40px;
-  }
   .contentBlock > div{
     max-width: 75%;
     margin: 0 auto;
     padding: 20px 24px;
   }
-  .sectionBlock{
-    border: 1px solid #d9dad9;
-    background: #dfe2e23d;
-    border-radius: 4px;
-    /*-webkit-box-shadow: inset 0px 0px 24px -2px rgba(184,182,184,0.39);*/
-    /*-moz-box-shadow: inset 0px 0px 24px -2px rgba(184,182,184,0.39);*/
-    /*box-shadow: inset 0px 0px 24px -2px rgba(184,182,184,0.39);*/
-  }
+  /*.sectionBlock{*/
+    /*border: 1px solid #d9dad9;*/
+    /*background: #dfe2e23d;*/
+    /*border-radius: 4px;*/
+    /*!*-webkit-box-shadow: inset 0px 0px 24px -2px rgba(184,182,184,0.39);*!*/
+    /*!*-moz-box-shadow: inset 0px 0px 24px -2px rgba(184,182,184,0.39);*!*/
+    /*!*box-shadow: inset 0px 0px 24px -2px rgba(184,182,184,0.39);*!*/
+  /*}*/
   .headerVisit{
     text-align: left;
   }
@@ -247,9 +244,6 @@ export default {
   }
   .tableInfo{
     margin-bottom: 10px;
-  }
-  .hr{
-    border: 1px solid #d4d4d4;
   }
   .about > div:first-child > h6, .aboutSite > div:first-child > h6 {
     font-weight: 300;

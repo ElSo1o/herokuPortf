@@ -33,18 +33,6 @@ export default {
 
 <style>
   /***Global***/
-  .vuescroll-content{
-    height: auto;
-  }
-  a, .links{
-    text-decoration: none;
-    color: #4faec1;
-    text-shadow: none;
-    transition: 0.5s;
-  }
-  a:hover, .links:hover{
-    color: #042d42;
-  }
   .sectionBox{
     text-align: center;
     height: 100%;
@@ -73,9 +61,6 @@ export default {
     -moz-box-shadow: inset 0px 0px 24px -2px rgba(184,182,184,0.39);
     box-shadow: inset 0px 0px 24px -2px rgba(184,182,184,0.39);
     border: 1px solid #a5a4a47a;
-  }
-  .vuescroll-vertical-bar{
-    background: #778077!important;
   }
   @media screen and (max-width: 500px) {
     .sectionBox{

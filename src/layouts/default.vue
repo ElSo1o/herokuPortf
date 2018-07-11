@@ -149,7 +149,7 @@ export default {
     // if (this.$q.platform.is.mobile) {
     //   this.isNotMobVersion = false
     // }
-    console.log(this.$q.platform)
+    // console.log(this.$q.platform)
   }
 }
 </script>
