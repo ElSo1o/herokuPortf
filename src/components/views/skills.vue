@@ -4,7 +4,7 @@
     <div>
       <h4>This page displays all the technologies that I previously used and in my humble opinion I have made a calculation of the level of their knowledge and experience in these technologies,max total 100</h4>
     </div>
-    <div class="sectionContent sectionBlock shadow-4">
+      <div class="sectionContent sectionBlock shadow-4">
         <div>
           <h5>Front-end</h5>
           <div class="hr"></div>
@@ -16,7 +16,7 @@
                                  :total-steps="item.totalSteps"
                                  :timingFunc="item.animate"
                                  :animateSpeed="3000"
-                                 :strokeWidth="5"
+                                 :strokeWidth="6"
                                  :startColor="item.colorStart"
                                  :stopColor="item.colorStop"
                                  :innerStrokeColor="item.strokeColor"
@@ -26,11 +26,54 @@
             </radial-progress-bar>
           </div>
         </div>
-        <div class="backSkills">
-
+        </div>
+      <div class="sectionContent sectionBlock shadow-4">
+      <div>
+        <h5>Back-end</h5>
+        <div class="hr"></div>
+      </div>
+      <div class="backSkills">
+        <div v-for="(item, i, key) in dataSkillsBack" :key="key" class="technologies">
+          <radial-progress-bar :diameter="160"
+                               :completed-steps="item.completedSteps"
+                               :total-steps="item.totalSteps"
+                               :timingFunc="item.animate"
+                               :animateSpeed="3000"
+                               :strokeWidth="6"
+                               :startColor="item.colorStart"
+                               :stopColor="item.colorStop"
+                               :innerStrokeColor="item.strokeColor"
+          >
+            <p>{{item.title}}</p>
+            <p>Total: <span>{{item.completedSteps}}</span></p>
+          </radial-progress-bar>
         </div>
       </div>
-  </div>
+    </div>
+      <div class="sectionContent sectionBlock shadow-4">
+        <div>
+          <h5>API and Instruments</h5>
+          <div class="hr"></div>
+        </div>
+        <div class="apiSkills">
+          <div v-for="(item, i, key) in dataSkillsApi" :key="key" class="technologies">
+            <radial-progress-bar :diameter="160"
+                                 :completed-steps="item.completedSteps"
+                                 :total-steps="item.totalSteps"
+                                 :timingFunc="item.animate"
+                                 :animateSpeed="3000"
+                                 :strokeWidth="6"
+                                 :startColor="item.colorStart"
+                                 :stopColor="item.colorStop"
+                                 :innerStrokeColor="item.strokeColor"
+            >
+              <p>{{item.title}}</p>
+              <p>Total: <span>{{item.completedSteps}}</span></p>
+            </radial-progress-bar>
+          </div>
+        </div>
+      </div>
+    </div>
   </vue-scroll>
 </template>
 
@@ -62,7 +105,9 @@ export default {
           background: '#01a99a'
         }
       },
-      dataTotal: [90, 80, 100, 30, 30, 70, 80, 80, 85, 60],
+      dataTotal: [90, 80, 100, 30, 30, 70, 80, 80, 55, 50, 85, 60],
+      dataTotalBack: [40, 50, 45, 45, 40],
+      dataTotalApi: [40, 40, 45, 70, 75],
       randomAnimate: [
         'cubic-bezier(.03,1.57,1,.07)',
         'linear',
@@ -144,6 +189,24 @@ export default {
           strokeColor: '#b0b6b0'
         },
         {
+          title: 'GraphQl-client',
+          completedSteps: 0,
+          totalSteps: 100,
+          animate: '',
+          colorStart: '#90246c',
+          colorStop: '#e535ab',
+          strokeColor: '#b0b6b0'
+        },
+        {
+          title: 'Apollo-client',
+          completedSteps: 0,
+          totalSteps: 100,
+          animate: '',
+          colorStart: '#9e55f6',
+          colorStop: '#7745bf',
+          strokeColor: '#b0b6b0'
+        },
+        {
           title: 'Quasar Framework',
           completedSteps: 0,
           totalSteps: 100,
@@ -161,14 +224,125 @@ export default {
           colorStop: '#b5e6dd',
           strokeColor: '#b0b6b0'
         }
+      ],
+      dataSkillsBack: [
+        {
+          title: 'Node',
+          completedSteps: 0,
+          totalSteps: 100,
+          animate: '',
+          colorStart: '#90c53f',
+          colorStop: '#6b9130',
+          strokeColor: '#b0b6b0'
+        },
+        {
+          title: 'Express',
+          completedSteps: 0,
+          totalSteps: 100,
+          animate: '',
+          colorStart: '#b4c5ab',
+          colorStop: '#536e64',
+          strokeColor: '#b0b6b0'
+        },
+        {
+          title: 'GraphQl-server',
+          completedSteps: 0,
+          totalSteps: 100,
+          animate: '',
+          colorStart: '#90246c',
+          colorStop: '#e535ab',
+          strokeColor: '#b0b6b0'
+        },
+        {
+          title: 'Apollo-server',
+          completedSteps: 0,
+          totalSteps: 100,
+          animate: '',
+          colorStart: '#9e55f6',
+          colorStop: '#7745bf',
+          strokeColor: '#b0b6b0'
+        },
+        {
+          title: 'MongoDB',
+          completedSteps: 0,
+          totalSteps: 100,
+          animate: '',
+          colorStart: '#81c564',
+          colorStop: '#73b97e',
+          strokeColor: '#b0b6b0'
+        }
+      ],
+      dataSkillsApi: [
+        {
+          title: 'Webpack',
+          completedSteps: 0,
+          totalSteps: 100,
+          animate: '',
+          colorStart: '#8ED6F9',
+          colorStop: '#1c78c0',
+          strokeColor: '#b0b6b0'
+        },
+        {
+          title: 'Npm',
+          completedSteps: 0,
+          totalSteps: 100,
+          animate: '',
+          colorStart: '#c00',
+          colorStop: '#ca6364',
+          strokeColor: '#b0b6b0'
+        },
+        {
+          title: 'Git',
+          completedSteps: 0,
+          totalSteps: 100,
+          animate: '',
+          colorStart: '#ff3929',
+          colorStop: '#513600',
+          strokeColor: '#b0b6b0'
+        },
+        {
+          title: 'Google Map API',
+          completedSteps: 0,
+          totalSteps: 100,
+          animate: '',
+          colorStart: '#73a0ff',
+          colorStop: '#c06045',
+          strokeColor: '#b0b6b0'
+        },
+        {
+          title: 'OVH API',
+          completedSteps: 0,
+          totalSteps: 100,
+          animate: '',
+          colorStart: '#73a0ff',
+          colorStop: '#c06045',
+          strokeColor: '#b0b6b0'
+        }
       ]
     }
   },
   mounted: function () {
-    this.dataSkillsFront.forEach((item, i) => {
-      item.animate = this.randomAnimate[Math.floor(Math.random() * this.randomAnimate.length)]
-      item.completedSteps = this.dataTotal[i]
-    })
+    const fillTotal = (arr, total) => {
+      arr.forEach((item, i) => {
+        item.animate = this.randomAnimate[Math.floor(Math.random() * this.randomAnimate.length)]
+        item.completedSteps = total[i]
+      })
+    }
+    fillTotal(this.dataSkillsFront, this.dataTotal)
+    fillTotal(this.dataSkillsBack, this.dataTotalBack)
+    fillTotal(this.dataSkillsApi, this.dataTotalApi)
+    // this.dataSkillsFront.forEach((item, i) => {
+    //   item.animate = this.randomAnimate[Math.floor(Math.random() * this.randomAnimate.length)]
+    //   item.completedSteps = this.dataTotal[i]
+    // })
+    // this.dataSkillsBack.forEach((item, i) => {
+    //   item.animate = this.randomAnimate[Math.floor(Math.random() * this.randomAnimate.length)]
+    //   item.completedSteps = this.dataTotalBack[i]
+    // })
+    // this.dataSkillsBack.forEach((item, i) => {
+    //   item.animate = this.randomAnimate[Math.floor(Math.random() * this.randomAnimate.length)]
+    //   item.completedSteps = this.dataTotalBack[i]
+    // })
     console.log()
   }
 }
@@ -178,11 +352,11 @@ export default {
   .contentSkills{
     height: 100%;
   }
-  .frontSkills, .backSkills{
+  .frontSkills, .backSkills, .apiSkills{
     padding-top: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
   }
   .contentSkills > div:first-child{
@@ -205,7 +379,7 @@ export default {
   }
   .technologies{
     /*flex-basis: 50%;*/
-    padding-right: 10px;
+    padding: 0 5px;
   }
   .radial-progress-inner > p:first-child {
     text-transform: uppercase;
@@ -213,5 +387,8 @@ export default {
   .radial-progress-inner > p:last-child {
     color: #636963;
     font-weight: 300;
+  }
+  .contentSkills > div:nth-child(3), .contentSkills > div:nth-child(4){
+    margin-top: 20px;
   }
 </style>

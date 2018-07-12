@@ -14,7 +14,7 @@ export default ({ app, router, Vue }) => {
     // You should use an absolute URL here
     // 'https://elsolo-api.herokuapp.com/api'
     // 'http://localhost:3000/api'
-    uri: 'http://localhost:3000/api'
+    uri: 'https://elsolo-api.herokuapp.com/api'
   })
   const authLink = setContext((_, { headers }) => {
     // get the authentication token from session storage if it exists
