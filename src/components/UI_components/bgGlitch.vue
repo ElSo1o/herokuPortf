@@ -1,9 +1,9 @@
 <template>
   <div class="glitch">
     <div class="glitch-img"></div>
-    <div class="glitch-img" :style="{'animation-delay': animationName + 's'}"></div>
-    <div class="glitch-img" :style="{'animation-delay': animationName + 's'}"></div>
-    <div class="glitch-img" :style="{'animation-delay': animationName + 's'}"></div>
+    <!--<div class="glitch-img" :style="{'animation-delay': animationName + 's'}"></div>-->
+    <!--<div class="glitch-img" :style="{'animation-delay': animationName + 's'}"></div>-->
+    <!--<div class="glitch-img" :style="{'animation-delay': animationName + 's'}"></div>-->
     <div class="bgGlitch"></div>
   </div>
 </template>

@@ -7,8 +7,7 @@
     <!--<router-view></router-view>-->
     <!--</transition>-->
   <div class="content">
-    <content-box>
-    </content-box>
+    <content-box></content-box>
     <bg-glitch></bg-glitch>
   </div>
 </template>
@@ -18,11 +17,16 @@
     padding: 48px 40px;
     height: 100%;
   }
+  @media screen and (max-width: 500px) {
+    .content{
+      padding: 12px;
+    }
+  }
 </style>
 
 <script>
 import bgGlitch from 'src/components/UI_components/bgGlitch'
-import contentBox from 'src/components/UI_components/contentBox'
+import contentBox from 'src/components/contentBox'
 export default {
   name: 'PageIndex',
   components: {
