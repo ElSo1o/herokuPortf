@@ -7,7 +7,6 @@ const parseJwt = (token) => {
   let base64 = base64Url.replace('-', '+').replace('_', '/')
   return JSON.parse(window.atob(base64))
 }
-// vue.use(vuescroll)
 export default ({ app, router, Vue }) => {
   // console.log(parseJwt())
   // something to do
@@ -19,14 +18,16 @@ export default ({ app, router, Vue }) => {
   })
   Vue.use(vuescroll)
   router.beforeEach((to, from, next) => {
-    // console.log(to)
+    // const token = document.cookie.slice('access_token='.length, document.cookie.length)
+    const token = localStorage.getItem('token')
     if (to.name === 'index' || to.name === 'home' || to.name === 'skills' || to.name === 'contacts' || to.name === 'portfolio') {
-      if (localStorage.getItem('token') === null) {
+      if (token === '') {
         next({name: 'login'})
       } else {
         try {
-          const token = parseJwt(localStorage.getItem('token'))
-          if (token.id) {
+          const parseToken = parseJwt(token)
+          // console.log(parseToken)
+          if (parseToken.id) {
             // console.log(token)
             next()
           } else {

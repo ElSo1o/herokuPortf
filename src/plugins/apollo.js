@@ -19,7 +19,12 @@ export default ({ app, router, Vue }) => {
   })
   const authLink = setContext((_, { headers }) => {
     // get the authentication token from session storage if it exists
-    const token = localStorage.getItem('token')
+    let token = localStorage.getItem('token')
+    // try {
+    //   token = document.cookie.slice('access_token='.length, document.cookie.length)
+    // } catch (e) {
+    //   token = ''
+    // }
     // return the headers to the context so httpLink can read them
     return {
       headers: {

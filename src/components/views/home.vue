@@ -32,7 +32,7 @@
                     </div>
                     <div>
                       <blockquote >
-                        <p>I'm using technologies such as Webpack,Vue,Quasar Framework,Apollo-Client,GraphQl-Client,and I created the Backend API for the authentication I'm using Node.js,Express,GraphQL-Server,Apollo-Server,MongoDB and JWT</p>
+                        <p>I'm using technologies such as Webpack,Vue,Quasar Framework,Apollo-Client,GraphQl-Client,and I created the Backend API, I'm using Node.js,Express,GraphQL-Server,Apollo-Server,MongoDB and JWT</p>
                         <!--<small>Someone famous for <cite title="Quasar Framework">Quasar Framework</cite></small>-->
                       </blockquote>
                     </div>

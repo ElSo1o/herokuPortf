@@ -6,7 +6,7 @@
     </div>
       <div class="sectionContent sectionBlock shadow-4">
         <div>
-          <h5>Front-end</h5>
+          <h5>Front-end (Middle)</h5>
           <div class="hr"></div>
         </div>
         <div class="frontSkills">
@@ -29,7 +29,7 @@
         </div>
       <div class="sectionContent sectionBlock shadow-4">
       <div>
-        <h5>Back-end</h5>
+        <h5>Back-end (Junior)</h5>
         <div class="hr"></div>
       </div>
       <div class="backSkills">
@@ -245,7 +245,7 @@ export default {
           strokeColor: '#b0b6b0'
         },
         {
-          title: 'GraphQl-server',
+          title: 'GraphQl API',
           completedSteps: 0,
           totalSteps: 100,
           animate: '',
