@@ -10,15 +10,21 @@
           <div>
             <h3>Header</h3>
           </div>
-          <div>
-            <div class="card" v-for="(item, i, key) in getProjects" :key="key">
+          <div class="portfolio-flex">
+            <div class="card shadow-4" v-for="(item, i, key) in getProjects" :key="key">
               <div class="img">
-                <img :src="item.img">
+                <img :src="`https://elsolo-api.herokuapp.com/images/projects/${item.img}`">
               </div>
               <div class="hr"></div>
               <div class="rating">
-                <h5>{{item.name}}</h5>
-                <q-rating slot="subtitle" v-model="item.rating.data" :max="5" />
+                <div class="titlePortfolio">
+                  <h5>{{item.name}}</h5>
+                  <p :data-link=item.src @click="redirectLink" class="links">Look at</p>
+                </div>
+                <div class="ratingContent">
+                  <q-rating slot="subtitle" @input="changedRating" v-model="item.rating.data" :max="5" />
+                  <p>Voted: <span>{{item.rating.counter}}</span></p>
+                </div>
               </div>
               <div class="description">
                 <q-collapsible icon="info" label="About project" icon-toggle>
@@ -84,6 +90,12 @@ export default {
     toggleLoading () {
       this.loading = !this.loading
       return this.loading
+    },
+    changedRating (e) {
+      console.log(e)
+    },
+    redirectLink (e) {
+      window.open(e.target.dataset.link)
     }
   },
   computed: {
@@ -97,14 +109,17 @@ export default {
       query: loadPortfolio
     }).then((response) => {
       response = JSON.parse(JSON.stringify(response))
-      console.log(response.data.projects)
+      console.log(response.data)
       this.dataProjects = response.data.projects
       this.toggleLoading()
     }).catch((error) => {
-      if (error.networkError.statusCode === 401) {
-      }
-      if (error.networkError.statusCode === 500) {
-      }
+      console.log(error)
+      localStorage.removeItem('token')
+      setTimeout(() => { this.$router.push({name: 'login'}) }, 0)
+      // if (error.networkError.statusCode === 401) {
+      // }
+      // if (error.networkError.statusCode === 500) {
+      // }
     })
   }
 }
@@ -117,9 +132,13 @@ export default {
     background: rgba(223,226,226,0.239);
     display: flex;
     flex-direction: column;
+    margin-bottom: 40px;
   }
   .img{
 
+  }
+  img{
+    width: 100%;
   }
   .rating{
     text-align: left;
@@ -128,5 +147,36 @@ export default {
   }
   .descriptionToggle{
     text-align: left;
+  }
+  .ratingContent{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .ratingContent > p{
+    font-size: 16px;
+    font-weight: 200;
+  }
+  .ratingContent > p > span{
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .portfolio-flex{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .titlePortfolio{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .titlePortfolio > p{
+    cursor: pointer;
+    margin: 0;
+  }
+  .titlePortfolio > h5{
+    font-size: 21px;
   }
 </style>
