@@ -14,11 +14,17 @@ export default ({ app, router, Vue }) => {
     // You should use an absolute URL here
     // 'https://elsolo-api.herokuapp.com/api'
     // 'http://localhost:3000/api'
-    uri: 'http://localhost:3000/api'
+    uri: 'https://elsolo-api.herokuapp.com/api',
+    credentials: 'include'
   })
   const authLink = setContext((_, { headers }) => {
     // get the authentication token from session storage if it exists
-    const token = localStorage.getItem('token')
+    let token = localStorage.getItem('token')
+    // try {
+    //   token = document.cookie.slice('access_token='.length, document.cookie.length)
+    // } catch (e) {
+    //   token = ''
+    // }
     // return the headers to the context so httpLink can read them
     return {
       headers: {
