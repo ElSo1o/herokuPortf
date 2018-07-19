@@ -82,7 +82,6 @@ export default {
     transform: translate3d(0, 0, 0);
     background-blend-mode: none
   }
-
   /*.glitch-img:nth-child(n+2) {*/
     /*opacity: 0*/
   /*}*/
