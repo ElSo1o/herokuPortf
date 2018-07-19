@@ -94,11 +94,11 @@ export default {
           password: _this.formVal.password
         }
       }).then((response) => {
+        this.$Progress.finish()
         console.log(response)
         if (response.data.singIn.token) {
           localStorage.setItem('token', response.data.singIn.token)
           this.$store.commit('dataStore/toggleSuccessNotifyLogin', {show: true, message: `You are logging ia a ${response.data.singIn.user.login}, your type permission ${response.data.singIn.user.info.type}, your email is a ${response.data.singIn.user.email}`})
-          this.$Progress.finish()
           this.loading = false
           this.$router.push({ path: '/index' })
         }
