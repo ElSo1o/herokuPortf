@@ -22,7 +22,7 @@
                   <p :data-link=item.src @click="redirectLink" class="links">Look at</p>
                 </div>
                 <div class="ratingContent">
-                  <q-rating slot="subtitle" @input="changedRating" v-model="item.rating.data" :max="5" />
+                  <q-rating slot="subtitle" @input="changedRating(item.rating.data, item.id)" :data-id="item.id" v-model="item.rating.data" :max="5" />
                   <p>Voted: <span>{{item.rating.counter}}</span></p>
                 </div>
               </div>
@@ -43,19 +43,32 @@ import gql from 'graphql-tag'
 const loadPortfolio = gql`
       query projects{
       projects{
+        id
         name
         img
         src
         description
         rating{
           data
-          arrAll{
-            id
-          }
           counter
         }
       }
     }
+`
+const changedRating = gql`
+    mutation changedRating ($id: Int!, $value: Int!){
+    changedRating (id:$id, rating:$value) {
+      id
+      name
+      img
+      src
+      description
+      rating{
+        data
+        counter
+      }
+    }
+  }
 `
 import loading from 'src/components/UI_components/Loading'
 export default {
@@ -91,8 +104,30 @@ export default {
       this.loading = !this.loading
       return this.loading
     },
-    changedRating (e) {
-      console.log(e)
+    changedRating (value, id) {
+      console.log(value)
+      console.log(id)
+      this.$apollo.mutate({
+        mutation: changedRating,
+        variables: {
+          id: id,
+          value: value
+        }
+      }).then((response) => {
+        console.log(response.data.changedRating)
+        this.dataProjects.forEach(item => {
+          if (item.id === response.data.changedRating.id) {
+            item.rating = response.data.changedRating.rating
+          }
+        })
+        console.log(this.dataProjects)
+      }).catch((error) => {
+        console.log(error)
+        // if (error.networkError.statusCode === 401) {
+        //   // localStorage.removeItem('token')
+        //   // setTimeout(() => { this.$router.push({name: 'login'}) }, 0)
+        // }
+      })
     },
     redirectLink (e) {
       window.open(e.target.dataset.link)
@@ -100,7 +135,11 @@ export default {
   },
   computed: {
     getProjects () {
-      return this.dataProjects
+      let sortArray = this.dataProjects
+      sortArray.sort((a, b) => {
+        return a.id - b.id
+      })
+      return sortArray
     }
   },
   mounted: function () {
