@@ -7,8 +7,8 @@
     </loading>
     <div class="contentPortfolio">
         <div>
-          <div>
-            <h3>Header</h3>
+          <div style="margin-bottom: 40px;">
+            <h3>This page displays my past work,since the data is downloaded from the database for the sake of interest, I allowed to vote for the project</h3>
           </div>
           <div class="portfolio-flex">
             <div class="card shadow-4" v-for="(item, i, key) in getProjects" :key="key">
@@ -122,11 +122,9 @@ export default {
         })
         console.log(this.dataProjects)
       }).catch((error) => {
-        console.log(error)
-        // if (error.networkError.statusCode === 401) {
-        //   // localStorage.removeItem('token')
-        //   // setTimeout(() => { this.$router.push({name: 'login'}) }, 0)
-        // }
+        console.log(error.message)
+        localStorage.removeItem('token')
+        setTimeout(() => { this.$router.push({name: 'login'}) }, 0)
       })
     },
     redirectLink (e) {
@@ -173,8 +171,10 @@ export default {
     flex-direction: column;
     margin-bottom: 40px;
   }
-  .img{
-
+  h3{
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 200;
   }
   img{
     width: 100%;
@@ -186,6 +186,8 @@ export default {
   }
   .descriptionToggle{
     text-align: left;
+    font-size: 18px;
+    font-weight: 400;
   }
   .ratingContent{
     display: flex;

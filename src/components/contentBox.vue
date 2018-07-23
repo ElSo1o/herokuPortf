@@ -40,7 +40,8 @@ export default {
     padding: 24px;
     border-radius: 4px;
     transition: 0.5s;
-    background: #b4d0e087
+    /*background: #b4d0e087;*/
+    background: rgba(193, 216, 228, 0.95);
   }
   /*.sectionBox:hover{*/
     /*padding: 12px;*/

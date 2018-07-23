@@ -275,7 +275,7 @@ export default {
   @media screen and (max-width: 700px) {
     .leftContentHome {
       width: 100%;
-      margin: 20px 0 0 0;
+      margin: 0;
     }
     .typerBlock {
       margin: 0 auto;

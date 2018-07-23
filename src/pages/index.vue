@@ -19,7 +19,7 @@
   }
   @media screen and (max-width: 500px) {
     .content{
-      padding: 12px;
+      padding: 0;
     }
   }
 </style>
