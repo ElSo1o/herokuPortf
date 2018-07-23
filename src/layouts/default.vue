@@ -83,9 +83,9 @@
           <q-toolbar-title>
             <div class="footer">
               <div class="linkFooter">
-                <div class="iconFooter"></div>
-                <div class="iconFooter"></div>
-                <div class="iconFooter"></div>
+                <div class="iconFooter" data-link="https://github.com/ElSo1o" @click="redirectTo"></div>
+                <div class="iconFooter" data-link="https://js.checkio.org/user/ElSolo/solutions/share/0f8cd5134b9f034f425859d74fe12194" @click="redirectTo"></div>
+                <div class="iconFooter" data-link="https://www.facebook.com/E1So1o" @click="redirectTo"></div>
               </div>
               <div class="copyright">
                 <span>&copy; {{getYear}} by Elsolo</span>
@@ -137,6 +137,9 @@ export default {
       console.log('test')
       localStorage.removeItem('token')
       setTimeout(() => { this.$router.push({name: 'login'}) }, 0)
+    },
+    redirectTo (e) {
+      window.open(e.target.dataset.link)
     }
   },
   computed: {
@@ -253,9 +256,10 @@ export default {
     background-repeat: no-repeat;
     border-radius: 50%;
     margin-right: 8px;
+    cursor: pointer;
   }
   .iconFooter:hover{
-    animation:spin 2s linear infinite;
+    animation:spin 2s cubic-bezier(1,-1.49,.88,-1.48) infinite;
   }
   @keyframes spin { 100% { transform:rotateY(360deg); } }
   .linkFooter{
@@ -263,12 +267,12 @@ export default {
     justify-content: flex-start;
   }
   .linkFooter > div:first-child{
-    background-image: url('/statics/vk.svg');
+    background-image: url('/statics/git.svg');
   }
   .linkFooter > div:nth-child(2){
-    background-image: url('/statics/facebook.svg');
+    background-image: url('/statics/checkio.png');
   }
   .linkFooter > div:last-child{
-    background-image: url('/statics/git.svg');
+    background-image: url('/statics/facebook.svg');
   }
 </style>
