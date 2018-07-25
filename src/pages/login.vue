@@ -11,7 +11,7 @@
             <q-input :loading="loading" v-model="formVal.login" type="text" id="login" float-label="Login" no-pass-toggle clearable style="text-align: left; font-size: 18px;" @input="validateLogin"/>
           </div>
           <div class="form-group">
-            <q-input  :loading="loading" v-model="formVal.password" type="password" id="password" float-label="Password" clearable style="text-align: left; font-size: 18px; color: #042d42" @input="validateLogin"/>
+            <q-input  :loading="loading" v-model="formVal.password" type="password" id="password" float-label="Password" clearable style="text-align: left; font-size: 18px;" @input="validateLogin"/>
           </div>
         </div>
         <div class="btnLink">

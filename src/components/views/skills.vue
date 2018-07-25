@@ -107,7 +107,7 @@ export default {
       },
       dataTotal: [90, 80, 100, 30, 30, 70, 80, 80, 55, 50, 85, 60],
       dataTotalBack: [40, 50, 45, 45, 40],
-      dataTotalApi: [40, 40, 45, 70, 75, 100, 40],
+      dataTotalApi: [40, 40, 45, 70, 75, 100, 30, 40],
       randomAnimate: [
         'cubic-bezier(.03,1.57,1,.07)',
         'linear',
@@ -325,6 +325,15 @@ export default {
           animate: '',
           colorStart: '#3984ff',
           colorStop: '#2b1ead',
+          strokeColor: '#b0b6b0'
+        },
+        {
+          title: 'WordPress',
+          completedSteps: 0,
+          totalSteps: 100,
+          animate: '',
+          colorStart: '#358ed8',
+          colorStop: '#293e42',
           strokeColor: '#b0b6b0'
         },
         {
